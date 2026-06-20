@@ -7,90 +7,123 @@
   <meta name="description" content="Juhyeong Kim — Incoming M.S./Ph.D. student at KAIST AI. Generative models, diffusion, bandit algorithms." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <style>
     :root {
-      --fg: #2b2b2b;
-      --muted: #828282;
-      --link: #2698ba;
-      --line: #ededed;
+      --ink: #20232a;
+      --muted: #7b818c;
+      --accent: #5847d6;       /* indigo-violet */
+      --accent-2: #8b5cf6;
+      --soft: #f6f5fb;         /* faint tint */
+      --line: #e8e7ef;
     }
     * { box-sizing: border-box; }
     html { scroll-behavior: smooth; }
     body {
       margin: 0;
       background: #fff;
-      color: var(--fg);
-      font-family: 'Lato', -apple-system, BlinkMacSystemFont, sans-serif;
-      font-weight: 400;
-      line-height: 1.7;
+      color: var(--ink);
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.72;
       -webkit-font-smoothing: antialiased;
     }
-    .wrap { max-width: 920px; margin: 0 auto; padding: 56px 28px 96px; }
+    .wrap { max-width: 920px; margin: 0 auto; padding: 60px 28px 100px; }
 
     /* ---- Header ---- */
-    header { display: flex; gap: 36px; align-items: flex-start; flex-wrap: wrap; }
+    header { display: flex; gap: 40px; align-items: flex-start; flex-wrap: wrap; }
+    .photo-frame { position: relative; flex-shrink: 0; }
     .photo {
-      width: 215px; height: 215px; object-fit: cover; border-radius: 6px;
-      box-shadow: 0 4px 18px rgba(0,0,0,.12); flex-shrink: 0;
+      width: 220px; height: 220px; object-fit: cover; border-radius: 10px;
+      display: block; position: relative; z-index: 1;
     }
-    .ident { flex: 1; min-width: 260px; padding-top: 4px; }
-    h1 { font-size: 3.1rem; font-weight: 300; margin: 0 0 10px; letter-spacing: -0.5px; line-height: 1.05; }
-    .role { font-size: 1.12rem; font-weight: 700; margin: 0; }
-    .org { color: var(--fg); margin: 0; }
-    .contact { color: var(--muted); margin: 4px 0 0; font-size: 0.98rem; }
-    .socials { display: flex; gap: 10px; margin-top: 16px; }
+    .photo-frame::after {
+      content: ""; position: absolute; inset: 0;
+      transform: translate(14px, 14px); border-radius: 10px;
+      border: 2px solid var(--accent); z-index: 0;
+    }
+    .ident { flex: 1; min-width: 270px; padding-top: 6px; }
+    h1 {
+      font-family: 'Spectral', serif; font-size: 3.2rem; font-weight: 500;
+      margin: 0 0 12px; letter-spacing: -0.5px; line-height: 1.04; color: var(--ink);
+    }
+    .role { font-size: 1.1rem; font-weight: 600; margin: 0; color: var(--accent); }
+    .org { margin: 2px 0 0; }
+    .contact { color: var(--muted); margin: 6px 0 0; font-size: 0.97rem; }
+    .socials { display: flex; gap: 11px; margin-top: 18px; }
     .socials a {
-      width: 38px; height: 38px; border-radius: 7px; background: #5b5b5b;
+      width: 40px; height: 40px; border-radius: 50%; border: 1.5px solid var(--line);
       display: inline-flex; align-items: center; justify-content: center;
-      color: #fff; transition: background .15s;
+      color: var(--muted); transition: all .18s;
     }
-    .socials a:hover { background: var(--link); }
-    .socials svg { width: 20px; height: 20px; fill: currentColor; }
+    .socials a:hover { background: var(--accent); border-color: var(--accent); color: #fff; transform: translateY(-2px); }
+    .socials svg { width: 19px; height: 19px; fill: currentColor; }
 
     /* ---- Nav ---- */
     nav {
-      margin: 40px 0 8px; padding: 16px 0;
+      margin: 46px 0 10px; padding: 15px 0;
       border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);
-      display: flex; gap: 36px; flex-wrap: wrap;
+      display: flex; gap: 34px; flex-wrap: wrap;
     }
     nav a {
-      text-decoration: none; color: var(--fg); font-size: 0.82rem;
-      letter-spacing: 0.15em; text-transform: uppercase; font-weight: 700;
+      text-decoration: none; color: var(--muted); font-size: 0.8rem;
+      letter-spacing: 0.16em; text-transform: uppercase; font-weight: 600;
+      position: relative; padding-bottom: 2px;
     }
-    nav a:hover { color: var(--link); }
+    nav a::after {
+      content: ""; position: absolute; left: 0; bottom: -3px; width: 0; height: 2px;
+      background: var(--accent); transition: width .2s;
+    }
+    nav a:hover { color: var(--ink); }
+    nav a:hover::after { width: 100%; }
 
     /* ---- Sections ---- */
     section { margin-top: 30px; }
-    h2 { font-size: 2.2rem; font-weight: 300; margin: 36px 0 18px; }
+    h2 {
+      font-family: 'Spectral', serif; font-size: 2.1rem; font-weight: 500;
+      margin: 40px 0 20px; padding-left: 16px; position: relative; color: var(--ink);
+    }
+    h2::before {
+      content: ""; position: absolute; left: 0; top: 12%; height: 76%; width: 4px;
+      border-radius: 4px; background: linear-gradient(var(--accent), var(--accent-2));
+    }
     p.about { font-size: 1.06rem; margin: 0; }
-    a.inline { color: var(--link); text-decoration: none; }
-    a.inline:hover { text-decoration: underline; }
+    a.inline { color: var(--accent); text-decoration: none; border-bottom: 1px solid transparent; }
+    a.inline:hover { border-bottom-color: var(--accent); }
 
     /* ---- Publications ---- */
-    .pub { margin-bottom: 26px; }
-    .pub .ptitle { font-weight: 700; font-size: 1.04rem; }
-    .pub .ptitle .tag { color: var(--fg); }
-    .pub .authors { font-size: 1rem; color: #4a4a4a; }
-    .pub .authors .me { text-decoration: underline; }
-    .pub .venue { font-style: italic; color: var(--muted); font-size: 0.96rem; }
-    .pub a.plink { color: var(--link); text-decoration: none; font-size: 0.9rem; }
-    .pub a.plink:hover { text-decoration: underline; }
+    .pub {
+      margin-bottom: 16px; padding: 18px 20px; border-radius: 12px;
+      background: var(--soft); border: 1px solid var(--line);
+      transition: transform .15s, box-shadow .15s;
+    }
+    .pub:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(88,71,214,.10); }
+    .pub .ptitle { font-weight: 600; font-size: 1.05rem; line-height: 1.4; }
+    .pub .tag {
+      display: inline-block; font-size: 0.74rem; font-weight: 700; color: var(--accent);
+      background: #ece9fb; padding: 2px 9px; border-radius: 6px; margin-right: 6px;
+      vertical-align: middle;
+    }
+    .pub .authors { font-size: 0.98rem; color: #51555e; margin-top: 5px; }
+    .pub .authors .me { font-weight: 700; color: var(--ink); }
+    .pub .authors sup { color: var(--accent); font-weight: 700; }
+    .pub .venue { font-style: italic; color: var(--muted); font-size: 0.93rem; margin-top: 4px; }
+    .legend { font-size: 0.85rem; color: var(--muted); margin-top: 14px; }
+    .legend sup { color: var(--accent); font-weight: 700; }
 
     /* ---- Experience / Education ---- */
-    .row { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; margin-bottom: 20px; }
-    .row .left .t { font-weight: 700; }
+    .row { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; margin-bottom: 22px; }
+    .row .left .t { font-weight: 600; }
     .row .left .s { color: var(--muted); font-size: 0.96rem; }
-    .row .date { color: var(--muted); font-size: 0.92rem; white-space: nowrap; }
-    ul.tight { margin: 4px 0 0; padding-left: 18px; }
-    ul.tight li { color: #4a4a4a; font-size: 0.96rem; }
+    .row .date { color: var(--accent); font-size: 0.9rem; font-weight: 600; white-space: nowrap; }
+    ul.tight { margin: 5px 0 0; padding-left: 18px; }
+    ul.tight li { color: #51555e; font-size: 0.96rem; }
 
-    hr.sep { border: none; border-top: 1px solid var(--line); margin: 40px 0 0; }
-    footer { margin-top: 40px; color: var(--muted); font-size: 0.85rem; }
+    hr.sep { border: none; border-top: 1px solid var(--line); margin: 42px 0 0; }
+    footer { margin-top: 18px; color: var(--muted); font-size: 0.85rem; }
 
     @media (max-width: 560px) {
-      h1 { font-size: 2.4rem; }
-      .photo { width: 170px; height: 170px; }
+      h1 { font-size: 2.5rem; }
+      .photo { width: 175px; height: 175px; }
     }
   </style>
 </head>
@@ -99,7 +132,9 @@
 
     <!-- Header -->
     <header>
-      <img class="photo" src="profile.jpg" alt="Juhyeong Kim" />
+      <div class="photo-frame">
+        <img class="photo" src="profile.jpg" alt="Juhyeong Kim" />
+      </div>
       <div class="ident">
         <h1>Juhyeong Kim</h1>
         <p class="role">Incoming M.S./Ph.D. Student</p>
@@ -147,22 +182,31 @@
       <h2>Publications</h2>
 
       <div class="pub">
-        <div class="ptitle"><span class="tag">[P1]</span> DualDrift: Forward and Reverse Drifting Fields for One-Step Generative Modeling</div>
-        <div class="authors"><span class="me">Juhyeong Kim</span></div>
+        <div class="ptitle"><span class="tag">P1</span>DualDrift: Forward and Reverse Drifting Fields for One-Step Generative Modeling</div>
+        <div class="authors">
+          Hojung Jung<sup>*</sup>, <span class="me">Juhyeong Kim<sup>*</sup></span>, Jaehyun Kwak, Boryeong Cho,
+          Junhyeok Yang, Youngrok Park, Sangmin Bae, Se-Young Yun<sup>&dagger;</sup>
+        </div>
         <div class="venue">NeurIPS 2026 (under review) &middot; ICML 2026 Workshop (accepted)</div>
       </div>
 
       <div class="pub">
-        <div class="ptitle"><span class="tag">[P2]</span> UniSAFE: A Comprehensive Benchmark for Safety Evaluation of Unified Multimodal Models</div>
-        <div class="authors"><span class="me">Juhyeong Kim</span></div>
+        <div class="ptitle"><span class="tag">P2</span>UniSAFE: A Comprehensive Benchmark for Safety Evaluation of Unified Multimodal Models</div>
+        <div class="authors">
+          Segyu Lee<sup>*</sup>, Boryeong Cho<sup>*</sup>, Hojung Jung<sup>*</sup>, Seokhyun An,
+          <span class="me">Juhyeong Kim</span>, Jaehyun Kwak, Yongjin Yang, Sangwon Jang,
+          Youngrok Park, Wonjun Chang, Se-Young Yun<sup>&dagger;</sup>
+        </div>
         <div class="venue">Preprint, 2026</div>
       </div>
 
       <div class="pub">
-        <div class="ptitle"><span class="tag">[W1]</span> Improved TFG for Test-Time Alignment</div>
+        <div class="ptitle"><span class="tag">W1</span>Improved TFG for Test-Time Alignment</div>
         <div class="authors"><span class="me">Juhyeong Kim</span></div>
         <div class="venue">Ongoing — a training-free method aiming to surpass existing SOTA</div>
       </div>
+
+      <p class="legend"><sup>*</sup> Equal contribution &nbsp;&middot;&nbsp; <sup>&dagger;</sup> Corresponding author</p>
     </section>
 
     <!-- Experience -->

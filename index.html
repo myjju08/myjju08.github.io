@@ -40,10 +40,8 @@
     header { display: flex; align-items: center; gap: 24px; flex-wrap: wrap; margin-bottom: 8px; }
     .avatar {
       width: 96px; height: 96px; border-radius: 50%;
-      background: linear-gradient(135deg, var(--accent), #9333ea);
-      display: flex; align-items: center; justify-content: center;
-      color: #fff; font-size: 34px; font-weight: 700; flex-shrink: 0;
-      font-family: 'Newsreader', serif;
+      object-fit: cover; flex-shrink: 0;
+      border: 1px solid var(--line);
     }
     h1 { font-size: 2rem; margin: 0 0 4px; font-weight: 700; letter-spacing: -0.02em; }
     .tagline { color: var(--muted); margin: 0; font-size: 1.02rem; }
@@ -92,7 +90,7 @@
 <body>
   <div class="wrap">
     <header>
-      <div class="avatar">JK</div>
+      <img class="avatar" src="profile.jpg" alt="Juhyeong Kim" />
       <div>
         <h1>Juhyeong Kim</h1>
         <p class="tagline">Incoming Integrated M.S./Ph.D. Student · Kim Jaechul Graduate School of AI, KAIST</p>

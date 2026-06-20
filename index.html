@@ -4,213 +4,213 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Juhyeong Kim</title>
-  <meta name="description" content="Juhyeong Kim — Incoming M.S./Ph.D. student at KAIST AI. Generative Models, Diffusion, Bandit Algorithms." />
+  <meta name="description" content="Juhyeong Kim — Incoming M.S./Ph.D. student at KAIST AI. Generative models, diffusion, bandit algorithms." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Newsreader:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet" />
   <style>
     :root {
-      --bg: #ffffff;
-      --fg: #1a1a1a;
-      --muted: #666;
-      --accent: #2563eb;
-      --line: #e5e7eb;
-      --card: #fafafa;
-    }
-    @media (prefers-color-scheme: dark) {
-      :root {
-        --bg: #0f1115;
-        --fg: #e8e8e8;
-        --muted: #9aa0a6;
-        --accent: #6ea8fe;
-        --line: #262a31;
-        --card: #161922;
-      }
+      --fg: #2b2b2b;
+      --muted: #828282;
+      --link: #2698ba;
+      --line: #ededed;
     }
     * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
     body {
       margin: 0;
-      background: var(--bg);
+      background: #fff;
       color: var(--fg);
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-      line-height: 1.65;
+      font-family: 'Lato', -apple-system, BlinkMacSystemFont, sans-serif;
+      font-weight: 400;
+      line-height: 1.7;
       -webkit-font-smoothing: antialiased;
     }
-    .wrap { max-width: 760px; margin: 0 auto; padding: 64px 24px 96px; }
-    header { display: flex; align-items: center; gap: 24px; flex-wrap: wrap; margin-bottom: 8px; }
-    .avatar {
-      width: 96px; height: 96px; border-radius: 50%;
-      object-fit: cover; flex-shrink: 0;
-      border: 1px solid var(--line);
+    .wrap { max-width: 920px; margin: 0 auto; padding: 56px 28px 96px; }
+
+    /* ---- Header ---- */
+    header { display: flex; gap: 36px; align-items: flex-start; flex-wrap: wrap; }
+    .photo {
+      width: 215px; height: 215px; object-fit: cover; border-radius: 6px;
+      box-shadow: 0 4px 18px rgba(0,0,0,.12); flex-shrink: 0;
     }
-    h1 { font-size: 2rem; margin: 0 0 4px; font-weight: 700; letter-spacing: -0.02em; }
-    .tagline { color: var(--muted); margin: 0; font-size: 1.02rem; }
-    .links { display: flex; flex-wrap: wrap; gap: 14px; margin: 18px 0 0; }
-    .links a {
-      color: var(--accent); text-decoration: none; font-size: 0.92rem; font-weight: 500;
-      border: 1px solid var(--line); padding: 6px 14px; border-radius: 999px;
-      transition: background .15s, border-color .15s;
+    .ident { flex: 1; min-width: 260px; padding-top: 4px; }
+    h1 { font-size: 3.1rem; font-weight: 300; margin: 0 0 10px; letter-spacing: -0.5px; line-height: 1.05; }
+    .role { font-size: 1.12rem; font-weight: 700; margin: 0; }
+    .org { color: var(--fg); margin: 0; }
+    .contact { color: var(--muted); margin: 4px 0 0; font-size: 0.98rem; }
+    .socials { display: flex; gap: 10px; margin-top: 16px; }
+    .socials a {
+      width: 38px; height: 38px; border-radius: 7px; background: #5b5b5b;
+      display: inline-flex; align-items: center; justify-content: center;
+      color: #fff; transition: background .15s;
     }
-    .links a:hover { background: var(--card); border-color: var(--accent); }
-    section { margin-top: 44px; }
-    h2 {
-      font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.12em;
-      color: var(--muted); font-weight: 600; margin: 0 0 18px;
-      padding-bottom: 8px; border-bottom: 1px solid var(--line);
+    .socials a:hover { background: var(--link); }
+    .socials svg { width: 20px; height: 20px; fill: currentColor; }
+
+    /* ---- Nav ---- */
+    nav {
+      margin: 40px 0 8px; padding: 16px 0;
+      border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);
+      display: flex; gap: 36px; flex-wrap: wrap;
     }
-    .intro { font-size: 1.06rem; }
-    .item { margin-bottom: 22px; }
-    .item-head { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
-    .item-title { font-weight: 600; }
-    .item-sub { color: var(--muted); font-size: 0.94rem; }
-    .item-date { color: var(--muted); font-size: 0.88rem; white-space: nowrap; }
-    ul.tight { margin: 6px 0 0; padding-left: 18px; }
-    ul.tight li { margin: 2px 0; color: var(--muted); font-size: 0.94rem; }
-    .pub {
-      background: var(--card); border: 1px solid var(--line); border-radius: 12px;
-      padding: 16px 18px; margin-bottom: 14px;
+    nav a {
+      text-decoration: none; color: var(--fg); font-size: 0.82rem;
+      letter-spacing: 0.15em; text-transform: uppercase; font-weight: 700;
     }
-    .pub .badge {
-      display: inline-block; font-size: 0.72rem; font-weight: 600; color: var(--accent);
-      background: color-mix(in srgb, var(--accent) 14%, transparent);
-      padding: 2px 10px; border-radius: 999px; margin-bottom: 8px;
+    nav a:hover { color: var(--link); }
+
+    /* ---- Sections ---- */
+    section { margin-top: 30px; }
+    h2 { font-size: 2.2rem; font-weight: 300; margin: 36px 0 18px; }
+    p.about { font-size: 1.06rem; margin: 0; }
+    a.inline { color: var(--link); text-decoration: none; }
+    a.inline:hover { text-decoration: underline; }
+
+    /* ---- Publications ---- */
+    .pub { margin-bottom: 26px; }
+    .pub .ptitle { font-weight: 700; font-size: 1.04rem; }
+    .pub .ptitle .tag { color: var(--fg); }
+    .pub .authors { font-size: 1rem; color: #4a4a4a; }
+    .pub .authors .me { text-decoration: underline; }
+    .pub .venue { font-style: italic; color: var(--muted); font-size: 0.96rem; }
+    .pub a.plink { color: var(--link); text-decoration: none; font-size: 0.9rem; }
+    .pub a.plink:hover { text-decoration: underline; }
+
+    /* ---- Experience / Education ---- */
+    .row { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; margin-bottom: 20px; }
+    .row .left .t { font-weight: 700; }
+    .row .left .s { color: var(--muted); font-size: 0.96rem; }
+    .row .date { color: var(--muted); font-size: 0.92rem; white-space: nowrap; }
+    ul.tight { margin: 4px 0 0; padding-left: 18px; }
+    ul.tight li { color: #4a4a4a; font-size: 0.96rem; }
+
+    hr.sep { border: none; border-top: 1px solid var(--line); margin: 40px 0 0; }
+    footer { margin-top: 40px; color: var(--muted); font-size: 0.85rem; }
+
+    @media (max-width: 560px) {
+      h1 { font-size: 2.4rem; }
+      .photo { width: 170px; height: 170px; }
     }
-    .pub .ptitle { font-weight: 600; }
-    .tags { display: flex; flex-wrap: wrap; gap: 8px; }
-    .tag {
-      font-size: 0.85rem; color: var(--fg); background: var(--card);
-      border: 1px solid var(--line); padding: 4px 12px; border-radius: 8px;
-    }
-    .grid2 { display: grid; grid-template-columns: 140px 1fr; gap: 6px 20px; font-size: 0.94rem; }
-    .grid2 .k { color: var(--muted); }
-    footer { margin-top: 64px; color: var(--muted); font-size: 0.85rem; text-align: center; }
-    a.inline { color: var(--accent); }
   </style>
 </head>
 <body>
   <div class="wrap">
+
+    <!-- Header -->
     <header>
-      <img class="avatar" src="profile.jpg" alt="Juhyeong Kim" />
-      <div>
+      <img class="photo" src="profile.jpg" alt="Juhyeong Kim" />
+      <div class="ident">
         <h1>Juhyeong Kim</h1>
-        <p class="tagline">Incoming Integrated M.S./Ph.D. Student · Kim Jaechul Graduate School of AI, KAIST</p>
+        <p class="role">Incoming M.S./Ph.D. Student</p>
+        <p class="org">Kim Jaechul Graduate School of AI, KAIST</p>
+        <p class="contact">myjju0808 [AT] kaist.ac.kr&nbsp; /&nbsp; myjju0808 [AT] naver.com</p>
+        <div class="socials">
+          <a href="https://github.com/myjju08" target="_blank" rel="noopener" aria-label="GitHub" title="GitHub">
+            <svg viewBox="0 0 24 24"><path d="M12 .5C5.73.5.5 5.73.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.56 0-.28-.01-1.02-.02-2-3.2.7-3.88-1.54-3.88-1.54-.52-1.33-1.28-1.69-1.28-1.69-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11 11 0 0 1 5.79 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.84 1.19 3.1 0 4.42-2.69 5.39-5.25 5.68.41.36.78 1.07.78 2.16 0 1.56-.01 2.82-.01 3.2 0 .31.21.68.8.56A11.51 11.51 0 0 0 23.5 12C23.5 5.73 18.27.5 12 .5z"/></svg>
+          </a>
+          <a href="https://www.linkedin.com/in/juhyeong-kim-52ab02293/" target="_blank" rel="noopener" aria-label="LinkedIn" title="LinkedIn">
+            <svg viewBox="0 0 24 24"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.07 2.07 0 1 1 0-4.14 2.07 2.07 0 0 1 0 4.14zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.22.79 24 1.77 24h20.45c.98 0 1.78-.78 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg>
+          </a>
+          <a href="mailto:myjju0808@kaist.ac.kr" aria-label="Email" title="Email">
+            <svg viewBox="0 0 24 24"><path d="M12 12.713l-11.985-9.713h23.97l-11.985 9.713zm0 2.574l-12-9.725v15.438h24v-15.438l-12 9.725z"/></svg>
+          </a>
+        </div>
       </div>
     </header>
 
-    <div class="links">
-      <a href="mailto:myjju0808@kaist.ac.kr">✉ Email</a>
-      <a href="https://github.com/myjju08" target="_blank" rel="noopener">GitHub</a>
-      <a href="https://www.linkedin.com/in/juhyeong-kim-52ab02293/" target="_blank" rel="noopener">LinkedIn</a>
+    <!-- Nav -->
+    <nav>
+      <a href="#about">About</a>
       <a href="#publications">Publications</a>
-    </div>
+      <a href="#experience">Experience</a>
+      <a href="#education">Education</a>
+    </nav>
 
-    <section>
-      <p class="intro">
-        I am an incoming M.S./Ph.D. student at KAIST AI (Kim Jaechul Graduate School),
-        advised by Prof. Se-Young Yun. My research centers on
-        <strong>generative models</strong> — diffusion models, one-step generative modeling,
-        and test-time alignment — alongside the mathematical foundations of
-        <strong>bandit algorithms</strong>. I am also interested in robotics and diffusion policy.
+    <!-- About -->
+    <section id="about">
+      <h2>About</h2>
+      <p class="about">
+        I am an incoming Integrated M.S./Ph.D. student at
+        <a class="inline" href="https://gsai.kaist.ac.kr/" target="_blank" rel="noopener">KAIST AI</a>
+        (Kim Jaechul Graduate School of AI), advised by Prof. Se-Young Yun. I received my
+        B.S. in Mathematical Science with a double major in Computer Science at KAIST.
+        My research focuses on <strong>generative models</strong> — diffusion models,
+        one-step generative modeling, and test-time alignment — as well as the
+        mathematical foundations of <strong>bandit algorithms</strong>. I am also
+        interested in robotics and diffusion policy.
       </p>
     </section>
 
-    <section>
-      <h2>Education</h2>
-      <div class="item">
-        <div class="item-head">
-          <span class="item-title">KAIST — Kim Jaechul Graduate School of AI</span>
-          <span class="item-date">2026.09 ∼</span>
-        </div>
-        <div class="item-sub">Incoming Integrated M.S./Ph.D. Student · Seoul</div>
-      </div>
-      <div class="item">
-        <div class="item-head">
-          <span class="item-title">KAIST — B.S. in Mathematical Science</span>
-          <span class="item-date">2022.03 ∼ 2026.08</span>
-        </div>
-        <div class="item-sub">Computer Science Double Major · Daejeon</div>
-      </div>
-      <div class="item">
-        <div class="item-head">
-          <span class="item-title">Technical University of Denmark (DTU)</span>
-          <span class="item-date">2025.02 ∼ 2025.06</span>
-        </div>
-        <div class="item-sub">Exchange Student, Computer Science · Lyngby, Denmark</div>
-      </div>
-    </section>
-
-    <section>
-      <h2>Experience</h2>
-      <div class="item">
-        <div class="item-head">
-          <span class="item-title">KAIRI Intern — OSI Lab, KAIST AI</span>
-          <span class="item-date">2023.12 ∼ 2026.08</span>
-        </div>
-        <div class="item-sub">Advisor: Prof. Se-Young Yun · Seoul</div>
-        <ul class="tight">
-          <li>Bandit algorithms</li>
-          <li>Diffusion models: improved TFG for test-time alignment</li>
-          <li>Drift models</li>
-        </ul>
-      </div>
-    </section>
-
+    <!-- Publications -->
     <section id="publications">
-      <h2>Publications &amp; Projects</h2>
+      <h2>Publications</h2>
 
       <div class="pub">
-        <span class="badge">NeurIPS 2026 (submitted) · ICML 2026 Workshop (accepted)</span>
-        <div class="ptitle">DualDrift: Forward and Reverse Drifting Fields for One-Step Generative Modeling</div>
-        <div class="item-sub">Generative modeling via drifting. 2026.02 ∼ present.</div>
+        <div class="ptitle"><span class="tag">[P1]</span> DualDrift: Forward and Reverse Drifting Fields for One-Step Generative Modeling</div>
+        <div class="authors"><span class="me">Juhyeong Kim</span></div>
+        <div class="venue">NeurIPS 2026 (under review) &middot; ICML 2026 Workshop (accepted)</div>
       </div>
 
       <div class="pub">
-        <span class="badge">Preprint</span>
-        <div class="ptitle">UniSAFE: A Comprehensive Benchmark for Safety Evaluation of UMM</div>
-        <div class="item-sub">Publicly available preprint. 2025.06 ∼ 2026.03.</div>
+        <div class="ptitle"><span class="tag">[P2]</span> UniSAFE: A Comprehensive Benchmark for Safety Evaluation of Unified Multimodal Models</div>
+        <div class="authors"><span class="me">Juhyeong Kim</span></div>
+        <div class="venue">Preprint, 2026</div>
       </div>
 
       <div class="pub">
-        <span class="badge">Project</span>
-        <div class="ptitle">Improved TFG for Test-Time Alignment</div>
-        <div class="item-sub">Developing a novel method to surpass existing training-free SOTA metrics. 2024.12 ∼ present.</div>
-      </div>
-
-      <div class="pub">
-        <span class="badge">Project</span>
-        <div class="ptitle">Bandit Algorithm Study</div>
-        <div class="item-sub">Mathematical analysis of Multi-Armed Bandits. 2024.03 ∼ 2024.08.</div>
+        <div class="ptitle"><span class="tag">[W1]</span> Improved TFG for Test-Time Alignment</div>
+        <div class="authors"><span class="me">Juhyeong Kim</span></div>
+        <div class="venue">Ongoing — a training-free method aiming to surpass existing SOTA</div>
       </div>
     </section>
 
-    <section>
-      <h2>Technical Skills</h2>
-      <div class="grid2">
-        <span class="k">Languages</span><span>Korean, English</span>
-        <span class="k">Frameworks</span><span>PyTorch, TensorFlow (basic), CUDA</span>
-        <span class="k">Tools</span><span>Git, GitHub, Conda, VS Code, Linux (Ubuntu), Jupyter, Figma</span>
-        <span class="k">Cloud</span><span>Google Cloud (Colab, GPU runtime)</span>
-      </div>
-      <div style="margin-top:18px" class="tags">
-        <span class="tag">Generative Models</span>
-        <span class="tag">Diffusion</span>
-        <span class="tag">Bandit Algorithms</span>
-        <span class="tag">Optimization</span>
-        <span class="tag">Computer Vision</span>
-        <span class="tag">Robotics / Diffusion Policy</span>
+    <!-- Experience -->
+    <section id="experience">
+      <h2>Experience</h2>
+      <div class="row">
+        <div class="left">
+          <div class="t">Research Intern (KAIRI) — OSI Lab, KAIST AI</div>
+          <div class="s">Advisor: Prof. Se-Young Yun &middot; Seoul, Korea</div>
+          <ul class="tight">
+            <li>Bandit algorithms</li>
+            <li>Diffusion models: improved TFG for test-time alignment</li>
+            <li>Drift models</li>
+          </ul>
+        </div>
+        <div class="date">2023.12 – 2026.08</div>
       </div>
     </section>
 
-    <section>
-      <h2>Activities</h2>
-      <ul class="tight">
-        <li>President, KAIST Basketball Club Doolly (2023.06 ∼ 2024.06)</li>
-      </ul>
+    <!-- Education -->
+    <section id="education">
+      <h2>Education</h2>
+      <div class="row">
+        <div class="left">
+          <div class="t">KAIST — Kim Jaechul Graduate School of AI</div>
+          <div class="s">Incoming Integrated M.S./Ph.D. Student &middot; Seoul</div>
+        </div>
+        <div class="date">2026.09 –</div>
+      </div>
+      <div class="row">
+        <div class="left">
+          <div class="t">KAIST — B.S. in Mathematical Science</div>
+          <div class="s">Computer Science Double Major &middot; Daejeon</div>
+        </div>
+        <div class="date">2022.03 – 2026.08</div>
+      </div>
+      <div class="row">
+        <div class="left">
+          <div class="t">Technical University of Denmark (DTU)</div>
+          <div class="s">Exchange Student, Computer Science &middot; Lyngby, Denmark</div>
+        </div>
+        <div class="date">2025.02 – 2025.06</div>
+      </div>
+
+      <hr class="sep" />
+      <footer>© 2026 Juhyeong Kim · Built with GitHub Pages</footer>
     </section>
 
-    <footer>
-      © 2026 Juhyeong Kim · Built with GitHub Pages
-    </footer>
   </div>
 </body>
 </html>

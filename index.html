@@ -31,7 +31,12 @@
       letter-spacing: -0.005em;
       -webkit-font-smoothing: antialiased;
     }
-    .wrap { max-width: 880px; margin: 0 auto; padding: 72px 28px 110px; }
+    .wrap { max-width: 880px; margin: 0 auto; padding: 40px 28px 110px; }
+
+    /* ---- Top bar ---- */
+    .topbar { display: flex; justify-content: flex-end; margin-bottom: 30px; }
+    .brand-logo { height: 34px; width: auto; display: block; opacity: .95; transition: opacity .15s; }
+    .topbar a:hover .brand-logo { opacity: 1; }
 
     /* ---- Header ---- */
     header { display: flex; gap: 44px; align-items: center; flex-wrap: wrap; }
@@ -49,8 +54,6 @@
       color: var(--accent-deep); background: var(--accent-soft);
       padding: 3px 12px; border-radius: 999px;
     }
-    .org { margin: 2px 0 0; color: var(--ink); font-weight: 600; }
-    .org-logo { height: 30px; width: auto; display: block; margin: 6px 0 0; }
     .contact { color: var(--muted); margin: 8px 0 0; font-size: 0.95rem; }
     .socials { display: flex; gap: 10px; margin-top: 18px; }
     .socials a {
@@ -118,6 +121,12 @@
 
     /* ---- Experience / Education ---- */
     .row { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; margin-bottom: 22px; }
+    .row.edu { align-items: center; gap: 20px; }
+    .edu-logo {
+      width: 50px; height: 50px; object-fit: contain; object-position: center;
+      flex-shrink: 0;
+    }
+    .row.edu .left { flex: 1 1 auto; min-width: 200px; }
     .row .left .t { font-weight: 600; color: var(--ink); }
     .row .left .s { color: var(--muted); font-size: 0.95rem; }
     .row .date { color: var(--accent-deep); font-size: 0.9rem; font-weight: 600; white-space: nowrap; }
@@ -137,13 +146,19 @@
 <body>
   <div class="wrap">
 
+    <!-- Top bar: institution brand -->
+    <div class="topbar">
+      <a href="https://gsai.kaist.ac.kr/" target="_blank" rel="noopener" aria-label="KAIST AI">
+        <img class="brand-logo" src="kaist-ai-logo.svg" alt="KAIST AI — Kim Jaechul Graduate School of AI" />
+      </a>
+    </div>
+
     <!-- Header -->
     <header>
       <img class="photo" src="profile.jpg" alt="Juhyeong Kim" />
       <div class="ident">
         <h1>Juhyeong Kim</h1>
         <p class="role">Incoming M.S./Ph.D. Student</p>
-        <img class="org-logo" src="kaist-ai-logo.svg" alt="KAIST AI — Kim Jaechul Graduate School of AI" />
         <p class="contact">myjju0808 [AT] kaist.ac.kr&nbsp; /&nbsp; myjju0808 [AT] naver.com</p>
         <div class="socials">
           <a href="https://github.com/myjju08" target="_blank" rel="noopener" aria-label="GitHub" title="GitHub">
@@ -237,21 +252,24 @@
     <!-- Education -->
     <section id="education">
       <h2>Education</h2>
-      <div class="row">
+      <div class="row edu">
+        <img class="edu-logo" src="kaist-logo.svg" alt="KAIST" />
         <div class="left">
           <div class="t">KAIST AI</div>
           <div class="s">Incoming Integrated M.S./Ph.D. Student &middot; Seoul</div>
         </div>
         <div class="date">2026.09 –</div>
       </div>
-      <div class="row">
+      <div class="row edu">
+        <img class="edu-logo" src="kaist-logo.svg" alt="KAIST" />
         <div class="left">
           <div class="t">KAIST — B.S. in Mathematical Science</div>
           <div class="s">Computer Science Double Major &middot; Daejeon</div>
         </div>
         <div class="date">2022.03 – 2026.08</div>
       </div>
-      <div class="row">
+      <div class="row edu">
+        <img class="edu-logo" src="dtu-logo.svg" alt="DTU" />
         <div class="left">
           <div class="t">Technical University of Denmark (DTU)</div>
           <div class="s">Exchange Student, Computer Science &middot; Lyngby, Denmark</div>

@@ -90,7 +90,18 @@
     strong { color: var(--ink); font-weight: 600; }
 
     /* ---- Publications ---- */
-    .pub { padding: 20px 0; border-bottom: 1px solid var(--line); }
+    .pub {
+      padding: 20px 0; border-bottom: 1px solid var(--line);
+      position: relative; transition: padding-left .18s ease;
+    }
+    .pub::before {
+      content: ""; position: absolute; left: 0; top: 22px; bottom: 22px;
+      width: 3px; border-radius: 3px; background: var(--accent);
+      opacity: 0; transition: opacity .18s ease;
+    }
+    .pub:hover { padding-left: 18px; }
+    .pub:hover::before { opacity: 1; }
+    .pub:hover .ptitle { color: var(--accent-deep); }
     .pub:first-of-type { padding-top: 4px; }
     .pub .tag {
       display: inline-block; font-size: 0.72rem; font-weight: 700; color: var(--accent-deep);

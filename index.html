@@ -54,7 +54,9 @@
       color: var(--accent-deep); background: var(--accent-soft);
       padding: 3px 12px; border-radius: 999px;
     }
-    .contact { color: var(--muted); margin: 8px 0 0; font-size: 0.95rem; }
+    .location { display: flex; align-items: center; gap: 6px; color: var(--muted); font-size: 0.9rem; margin: 9px 0 0; }
+    .location svg { width: 14px; height: 14px; fill: var(--accent); flex-shrink: 0; }
+    .contact { color: var(--muted); margin: 6px 0 0; font-size: 0.95rem; }
     .socials { display: flex; gap: 10px; margin-top: 18px; }
     .socials a {
       width: 38px; height: 38px; border-radius: 10px; background: var(--soft);
@@ -159,6 +161,10 @@
       <div class="ident">
         <h1>Juhyeong Kim</h1>
         <p class="role">Incoming M.S./Ph.D. Student</p>
+        <p class="location">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/></svg>
+          Seoul, South Korea
+        </p>
         <p class="contact">myjju0808 [AT] kaist.ac.kr&nbsp; /&nbsp; myjju0808 [AT] naver.com</p>
         <div class="socials">
           <a href="https://github.com/myjju08" target="_blank" rel="noopener" aria-label="GitHub" title="GitHub">

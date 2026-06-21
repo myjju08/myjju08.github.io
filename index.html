@@ -132,6 +132,8 @@
     .row .left .t { font-weight: 600; color: var(--ink); }
     .row .left .s { color: var(--muted); font-size: 0.95rem; }
     .row .date { color: var(--accent-deep); font-size: 0.9rem; font-weight: 600; white-space: nowrap; flex-shrink: 0; }
+    .row.edu .meta { flex-shrink: 0; text-align: right; }
+    .row.edu .place { color: var(--muted); font-size: 0.85rem; margin-top: 3px; white-space: nowrap; }
     ul.tight { margin: 6px 0 0; padding-left: 18px; }
     ul.tight li { color: var(--body); font-size: 0.95rem; }
 
@@ -143,7 +145,7 @@
       header { gap: 28px; }
       .photo { width: 150px; height: 150px; }
       .row.edu { flex-wrap: wrap; }
-      .row.edu .date { width: 100%; margin-left: 70px; }
+      .row.edu .meta { width: 100%; margin-left: 70px; text-align: left; }
     }
   </style>
 </head>
@@ -256,25 +258,34 @@
         <img class="edu-logo" src="kaist-logo.svg" alt="KAIST" />
         <div class="left">
           <div class="t">KAIST AI</div>
-          <div class="s">Integrated M.S./Ph.D. Student &middot; Seoul, South Korea</div>
+          <div class="s">Integrated M.S./Ph.D. Student</div>
         </div>
-        <div class="date">2026.09 –</div>
+        <div class="meta">
+          <div class="date">2026.09 –</div>
+          <div class="place">Seoul, South Korea</div>
+        </div>
       </div>
       <div class="row edu">
         <img class="edu-logo" src="kaist-logo.svg" alt="KAIST" />
         <div class="left">
           <div class="t">KAIST</div>
-          <div class="s">B.S. in Mathematical Science &amp; Computer Science (Double Major) &middot; Daejeon, South Korea</div>
+          <div class="s">B.S. in Mathematical Science &amp; Computer Science (Double Major)</div>
         </div>
-        <div class="date">2022.03 – 2026.08</div>
+        <div class="meta">
+          <div class="date">2022.03 – 2026.08</div>
+          <div class="place">Daejeon, South Korea</div>
+        </div>
       </div>
       <div class="row edu">
         <img class="edu-logo" src="dtu-logo.svg" alt="DTU" />
         <div class="left">
           <div class="t">Technical University of Denmark (DTU)</div>
-          <div class="s">Exchange Student, Computer Science &middot; Lyngby, Denmark</div>
+          <div class="s">Exchange Student, Computer Science</div>
         </div>
-        <div class="date">2025.02 – 2025.06</div>
+        <div class="meta">
+          <div class="date">2025.02 – 2025.06</div>
+          <div class="place">Lyngby, Denmark</div>
+        </div>
       </div>
     </section>
 

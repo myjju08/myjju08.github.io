@@ -123,15 +123,15 @@
 
     /* ---- Experience / Education ---- */
     .row { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; margin-bottom: 22px; }
-    .row.edu { align-items: center; gap: 20px; }
+    .row.edu { align-items: flex-start; gap: 20px; flex-wrap: nowrap; }
     .edu-logo {
       width: 50px; height: 50px; object-fit: contain; object-position: center;
       flex-shrink: 0;
     }
-    .row.edu .left { flex: 1 1 auto; min-width: 200px; }
+    .row.edu .left { flex: 1 1 auto; min-width: 0; }
     .row .left .t { font-weight: 600; color: var(--ink); }
     .row .left .s { color: var(--muted); font-size: 0.95rem; }
-    .row .date { color: var(--accent-deep); font-size: 0.9rem; font-weight: 600; white-space: nowrap; }
+    .row .date { color: var(--accent-deep); font-size: 0.9rem; font-weight: 600; white-space: nowrap; flex-shrink: 0; }
     ul.tight { margin: 6px 0 0; padding-left: 18px; }
     ul.tight li { color: var(--body); font-size: 0.95rem; }
 
@@ -142,6 +142,8 @@
       h1 { font-size: 2.3rem; }
       header { gap: 28px; }
       .photo { width: 150px; height: 150px; }
+      .row.edu { flex-wrap: wrap; }
+      .row.edu .date { width: 100%; margin-left: 70px; }
     }
   </style>
 </head>

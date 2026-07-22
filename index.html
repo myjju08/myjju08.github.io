@@ -96,35 +96,28 @@
 
     /* ---- Publications ---- */
     .pub {
-      display: grid; grid-template-columns: 220px minmax(0, 1fr); gap: 26px;
-      align-items: start; padding: 26px 0; border-bottom: 1px solid var(--line);
+      display: grid; grid-template-columns: 205px minmax(0, 1fr); gap: 24px;
+      align-items: center; padding: 26px 0; border-bottom: 1px solid var(--line);
       position: relative;
     }
     .pub-figure {
-      display: block; width: 100%; aspect-ratio: 16 / 10; overflow: hidden;
-      border: 1px solid var(--line); border-radius: 12px; background: #fff;
-      box-shadow: 0 8px 24px rgba(27, 47, 95, .08);
+      display: block; width: 100%; background: transparent;
     }
-    .pub-figure img { width: 100%; height: 100%; object-fit: contain; display: block; }
+    .pub-figure img { width: 100%; height: auto; display: block; }
     .pub:hover .ptitle { color: var(--accent-deep); }
     .pub:first-of-type { padding-top: 6px; }
     .pub-copy { min-width: 0; }
-    .pub .tag {
-      display: inline-block; font-size: 0.72rem; font-weight: 700; color: var(--accent-deep);
-      background: var(--accent-soft); padding: 2px 9px; border-radius: 6px;
-      letter-spacing: 0.06em; margin-bottom: 6px;
-    }
-    .pub .ptitle { font-weight: 600; font-size: 1.06rem; line-height: 1.4; color: var(--ink); }
-    .pub .authors { font-size: 0.97rem; color: var(--body); margin-top: 5px; }
+    .pub .ptitle { font-weight: 700; font-size: .94rem; line-height: 1.38; color: var(--accent-deep); }
+    .pub .authors { font-size: .86rem; line-height: 1.5; color: var(--body); margin-top: 3px; }
     .pub .authors .me { font-weight: 700; color: var(--ink); }
     .pub .authors sup { color: var(--accent); font-weight: 700; }
-    .pub .venue { font-size: 0.93rem; color: var(--muted); margin-top: 4px; }
-    .pub .links { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 9px; }
+    .pub .venue { font-size: .84rem; line-height: 1.45; color: var(--ink); margin-top: 2px; }
+    .pub .links { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 1px; }
     .pub .links a {
-      color: var(--accent); font-size: .88rem; font-weight: 600; text-decoration: none;
+      color: var(--accent); font-size: .82rem; font-weight: 500; text-decoration: none;
     }
     .pub .links a:hover { text-decoration: underline; }
-    .pub .summary { margin: 13px 0 0; font-size: .94rem; line-height: 1.62; color: var(--body); }
+    .pub .summary { margin: 10px 0 0; font-size: .86rem; line-height: 1.48; color: var(--ink); }
     .legend { font-size: 0.85rem; color: var(--muted); margin-top: 16px; }
     .legend sup { color: var(--accent); font-weight: 700; }
 
@@ -154,7 +147,7 @@
       .row.edu { flex-wrap: wrap; }
       .row.edu .meta { width: 100%; margin-left: 70px; text-align: left; }
       .pub { grid-template-columns: 1fr; gap: 16px; }
-      .pub-figure { max-width: 360px; }
+      .pub-figure { max-width: 320px; }
     }
   </style>
 </head>
@@ -225,7 +218,6 @@
           <img src="dualdrift.png" alt="Comparison of reverse drift, forward drift, and DualDrift" />
         </div>
         <div class="pub-copy">
-          <div class="tag">P1</div>
           <div class="ptitle">DualDrift: Forward and Reverse Drifting Fields for One-Step Generative Modeling</div>
           <div class="authors">
             Hojung Jung<sup>*</sup>, <span class="me">Juhyeong Kim<sup>*</sup></span>, Jaehyun Kwak, Boryeong Cho,
@@ -244,7 +236,6 @@
           <img src="unisafe-overview.png" alt="UniSAFE safety risk comparison across tasks and models" />
         </a>
         <div class="pub-copy">
-          <div class="tag">P2</div>
           <div class="ptitle">UniSAFE: A Comprehensive Benchmark for Safety Evaluation of Unified Multimodal Models</div>
           <div class="authors">
             Segyu Lee<sup>*</sup>, Boryeong Cho<sup>*</sup>, Hojung Jung<sup>*</sup>, Seokhyun An,

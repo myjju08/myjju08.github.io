@@ -123,31 +123,69 @@
 
     /* ---- Experience / Education ---- */
     .row { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; margin-bottom: 22px; }
-    .row.edu { align-items: flex-start; gap: 20px; flex-wrap: nowrap; }
+    .row.edu {
+      display: grid; grid-template-columns: 50px minmax(0, 1fr) max-content;
+      grid-template-areas: "logo content meta";
+      align-items: start; gap: 20px;
+    }
     .edu-logo {
       width: 50px; height: 50px; object-fit: contain; object-position: center;
-      flex-shrink: 0;
+      grid-area: logo; flex-shrink: 0;
     }
-    .row.edu .left { flex: 1 1 auto; min-width: 0; }
+    .row.edu .left { grid-area: content; min-width: 0; }
     .row .left .t { font-weight: 600; color: var(--ink); }
     .row .left .s { color: var(--muted); font-size: 0.95rem; }
     .row .date { color: var(--accent-deep); font-size: 0.9rem; font-weight: 600; white-space: nowrap; flex-shrink: 0; }
-    .row.edu .meta { flex-shrink: 0; text-align: right; }
+    .row.edu .meta { grid-area: meta; min-width: 0; text-align: right; }
     .row.edu .place { color: var(--muted); font-size: 0.85rem; margin-top: 3px; white-space: nowrap; }
+    .row .t, .row .s, .pub-copy { overflow-wrap: anywhere; }
     ul.tight { margin: 6px 0 0; padding-left: 18px; }
     ul.tight li { color: var(--body); font-size: 0.95rem; }
 
     footer { margin-top: 56px; padding-top: 22px; border-top: 1px solid var(--line); color: var(--muted); font-size: 0.85rem; }
 
-    @media (max-width: 560px) {
-      .wrap { padding-top: 48px; }
-      h1 { font-size: 2.3rem; }
-      header { gap: 28px; }
-      .photo { width: 150px; height: 150px; }
-      .row.edu { flex-wrap: wrap; }
-      .row.edu .meta { width: 100%; margin-left: 70px; text-align: left; }
-      .pub { grid-template-columns: 1fr; gap: 16px; }
-      .pub-figure { max-width: 320px; }
+    @media (max-width: 640px) {
+      .wrap { padding: 24px 22px 72px; }
+      .topbar { margin-bottom: 26px; }
+      .brand-logo { height: 30px; }
+      header { flex-direction: column; align-items: flex-start; gap: 22px; }
+      .photo { width: 148px; height: 148px; border-radius: 14px; }
+      .ident { width: 100%; min-width: 0; }
+      h1 { font-size: clamp(2.05rem, 10vw, 2.4rem); }
+      .role { font-size: 0.84rem; }
+      nav {
+        margin: 38px 0 8px; padding-bottom: 16px;
+        display: grid; grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 9px 18px;
+      }
+      nav a { width: fit-content; }
+      h2 { margin-top: 40px; font-size: 1.4rem; }
+      p.about { font-size: 1rem; }
+      .pub { grid-template-columns: minmax(0, 1fr); gap: 16px; padding: 22px 0; }
+      .pub-figure { width: 100%; max-width: 420px; }
+      .pub .ptitle { font-size: .92rem; }
+      .pub .summary { margin-top: 8px; }
+      .row:not(.edu) { display: grid; gap: 6px; }
+      .row.edu {
+        grid-template-columns: 42px minmax(0, 1fr);
+        grid-template-areas:
+          "logo content"
+          "logo meta";
+        column-gap: 14px; row-gap: 5px; margin-bottom: 26px;
+      }
+      .edu-logo { width: 42px; height: 42px; }
+      .row.edu .meta {
+        display: flex; align-items: baseline;
+        flex-wrap: wrap; gap: 0 9px; text-align: left;
+      }
+      .row.edu .place { margin-top: 0; white-space: normal; }
+      footer { margin-top: 46px; }
+    }
+
+    @media (max-width: 360px) {
+      .wrap { padding-right: 18px; padding-left: 18px; }
+      nav { column-gap: 14px; }
+      .photo { width: 138px; height: 138px; }
     }
   </style>
 </head>

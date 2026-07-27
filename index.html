@@ -123,20 +123,20 @@
 
     /* ---- Experience / Education ---- */
     .row { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; margin-bottom: 22px; }
-    .row.edu {
+    .row.edu, .row.exp {
       display: grid; grid-template-columns: 50px minmax(0, 1fr) max-content;
       grid-template-areas: "logo content meta";
       align-items: start; gap: 20px;
     }
-    .edu-logo {
+    .edu-logo, .exp-logo {
       width: 50px; height: 50px; object-fit: contain; object-position: center;
       grid-area: logo; flex-shrink: 0;
     }
-    .row.edu .left { grid-area: content; min-width: 0; }
+    .row.edu .left, .row.exp .left { grid-area: content; min-width: 0; }
     .row .left .t { font-weight: 600; color: var(--ink); }
     .row .left .s { color: var(--muted); font-size: 0.95rem; }
     .row .date { color: var(--accent-deep); font-size: 0.9rem; font-weight: 600; white-space: nowrap; flex-shrink: 0; }
-    .row.edu .meta { grid-area: meta; min-width: 0; text-align: right; }
+    .row.edu .meta, .row.exp .meta { grid-area: meta; min-width: 0; text-align: right; }
     .row.edu .place { color: var(--muted); font-size: 0.85rem; margin-top: 3px; white-space: nowrap; }
     .row .t, .row .s, .pub-copy { overflow-wrap: anywhere; }
     ul.tight { margin: 6px 0 0; padding-left: 18px; }
@@ -165,16 +165,16 @@
       .pub-figure { width: 100%; max-width: 420px; }
       .pub .ptitle { font-size: .92rem; }
       .pub .summary { margin-top: 8px; }
-      .row:not(.edu) { display: grid; gap: 6px; }
-      .row.edu {
+      .row:not(.edu):not(.exp) { display: grid; gap: 6px; }
+      .row.edu, .row.exp {
         grid-template-columns: 42px minmax(0, 1fr);
         grid-template-areas:
           "logo content"
           "logo meta";
         column-gap: 14px; row-gap: 5px; margin-bottom: 26px;
       }
-      .edu-logo { width: 42px; height: 42px; }
-      .row.edu .meta {
+      .edu-logo, .exp-logo { width: 42px; height: 42px; }
+      .row.edu .meta, .row.exp .meta {
         display: flex; align-items: baseline;
         flex-wrap: wrap; gap: 0 9px; text-align: left;
       }
@@ -297,7 +297,18 @@
     <!-- Experience -->
     <section id="experience">
       <h2>Experience</h2>
-      <div class="row">
+      <div class="row exp">
+        <img class="exp-logo" src="khu-logo.jpg" alt="Kyung Hee University" />
+        <div class="left">
+          <div class="t">Research Assistant — Gastric Cancer ML Analysis</div>
+          <div class="s">Kyung Hee University Dentistry &middot; Seoul, South Korea</div>
+        </div>
+        <div class="meta">
+          <div class="date">2026.07 – 2026.08</div>
+        </div>
+      </div>
+      <div class="row exp">
+        <img class="exp-logo" src="osi-lab-logo.png" alt="OSI Lab" />
         <div class="left">
           <div class="t">Research Intern (KAIRI) — OSI Lab, KAIST AI</div>
           <div class="s">Advisor: Prof. Se-Young Yun &middot; Seoul, South Korea</div>
@@ -307,14 +318,19 @@
             <li>Drift models</li>
           </ul>
         </div>
-        <div class="date">2023.12 – 2026.08</div>
+        <div class="meta">
+          <div class="date">2023.12 – 2026.08</div>
+        </div>
       </div>
-      <div class="row">
+      <div class="row exp">
+        <img class="exp-logo" src="basketball-icon.svg" alt="Basketball" />
         <div class="left">
           <div class="t">President — Doolly, KAIST Basketball Club</div>
           <div class="s">KAIST &middot; Daejeon, South Korea</div>
         </div>
-        <div class="date">2023.09 – 2024.06</div>
+        <div class="meta">
+          <div class="date">2023.09 – 2024.06</div>
+        </div>
       </div>
     </section>
 

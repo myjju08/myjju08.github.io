@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="theme-color" content="#0c1f36" />
+  <meta name="theme-color" content="#ffffff" />
   <meta name="description" content="Juhyeong Kim — Incoming M.S./Ph.D. student at KAIST AI researching generative models and bandit algorithms." />
   <title>Juhyeong Kim — Researcher</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -36,7 +36,7 @@
     body {
       margin: 0;
       color: var(--text);
-      background: #e7eff5;
+      background: #ffffff;
       font-family: "DM Sans", sans-serif;
       line-height: 1.65;
       -webkit-font-smoothing: antialiased;
@@ -62,13 +62,13 @@
       z-index: 2;
       overflow: hidden;
       min-width: 0;
-      color: rgba(247, 250, 252, 0.72);
+      color: var(--text);
       background:
-        linear-gradient(128deg, rgba(57, 111, 168, 0.16), transparent 48%),
-        var(--navy);
-      border: 1px solid rgba(147, 197, 244, 0.13);
+        linear-gradient(128deg, rgba(255, 255, 255, 0.72), transparent 52%),
+        #e7f4ff;
+      border: 1px solid #cfe5f6;
       border-radius: 1.25rem;
-      box-shadow: 0 1.5rem 4rem rgba(17, 44, 72, 0.14);
+      box-shadow: 0 1.25rem 3.5rem rgba(36, 92, 137, 0.1);
     }
 
     .sidebar::after {
@@ -78,7 +78,7 @@
       width: 18rem;
       height: 18rem;
       border-radius: 50%;
-      background: rgba(91, 157, 221, 0.2);
+      background: rgba(91, 157, 221, 0.16);
       filter: blur(3.5rem);
       content: "";
     }
@@ -87,11 +87,11 @@
       position: relative;
       z-index: 1;
       display: grid;
-      grid-template-columns: 9rem minmax(0, 1fr) auto;
+      grid-template-columns: 9rem minmax(0, 1fr);
       grid-template-areas:
-        "photo identity logo"
-        "photo navigation navigation"
-        "photo contact contact";
+        "photo identity"
+        "photo navigation"
+        "photo contact";
       column-gap: clamp(1.75rem, 4vw, 3.5rem);
       row-gap: 0;
       min-height: auto;
@@ -99,28 +99,30 @@
     }
 
     .sidebar-top {
-      grid-area: logo;
+      position: absolute;
+      top: 1.55rem;
+      right: 1.8rem;
       display: flex;
       align-items: center;
-      justify-self: end;
       min-height: 1.8rem;
     }
 
     .institution-mark {
       display: inline-flex;
       width: 7.8rem;
-      opacity: 0.76;
+      width: 8.6rem;
+      opacity: 0.88;
       transition: opacity 180ms ease;
     }
 
     .institution-mark:hover { opacity: 1; }
-    .institution-mark img { display: block; width: 100%; height: auto; filter: brightness(0) invert(1); }
+    .institution-mark img { display: block; width: 100%; height: auto; }
 
-    .identity { grid-area: identity; align-self: center; margin: 0; }
+    .identity { grid-area: identity; align-self: center; margin: 0; padding-right: 10rem; }
 
     .eyebrow {
       margin: 0 0 1.2rem;
-      color: var(--accent);
+      color: var(--accent-dark);
       font: 600 0.7rem/1.2 "Manrope", sans-serif;
       letter-spacing: 0.18em;
       text-transform: uppercase;
@@ -129,7 +131,7 @@
     .name {
       max-width: none;
       margin: 0;
-      color: var(--white);
+      color: var(--ink);
       font: 600 2rem/1.08 "Space Grotesk", sans-serif;
       letter-spacing: -0.035em;
     }
@@ -137,7 +139,7 @@
     .role {
       max-width: 17rem;
       margin: 1.3rem 0 0;
-      color: rgba(247, 250, 252, 0.62);
+      color: #587287;
       font-size: 0.88rem;
       line-height: 1.6;
     }
@@ -153,9 +155,10 @@
       aspect-ratio: 4 / 5;
       object-fit: cover;
       object-position: center 27%;
-      border: 1px solid rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(47, 111, 169, 0.16);
       border-radius: 0.35rem;
       filter: saturate(0.82) contrast(1.02);
+      box-shadow: 0 0.8rem 2rem rgba(36, 92, 137, 0.12);
     }
 
     .side-nav {
@@ -172,9 +175,9 @@
       align-items: center;
       gap: 0.45rem;
       padding: 0.55rem 0.72rem;
-      border: 1px solid rgba(255, 255, 255, 0.11);
+      border: 1px solid rgba(47, 111, 169, 0.18);
       border-radius: 999px;
-      color: rgba(247, 250, 252, 0.55);
+      color: #587287;
       font: 500 0.76rem/1.2 "Manrope", sans-serif;
       letter-spacing: 0.02em;
       text-decoration: none;
@@ -183,11 +186,11 @@
 
     .side-nav a:hover,
     .side-nav a.is-active {
-      color: var(--white);
-      background: rgba(147, 197, 244, 0.12);
-      border-color: rgba(147, 197, 244, 0.26);
+      color: #153653;
+      background: rgba(147, 197, 244, 0.22);
+      border-color: rgba(47, 111, 169, 0.28);
     }
-    .side-nav .nav-number { color: rgba(147, 197, 244, 0.76); font-size: 0.62rem; }
+    .side-nav .nav-number { color: var(--accent-dark); font-size: 0.62rem; }
     .side-nav .nav-arrow { display: none; }
 
     .sidebar-footer {
@@ -204,24 +207,24 @@
       display: inline-flex;
       align-items: center;
       gap: 0.42rem;
-      color: rgba(247, 250, 252, 0.7);
+      color: #4f6b80;
       font: 500 0.75rem/1.2 "Manrope", sans-serif;
     }
 
     .location-chip svg {
       width: 0.82rem;
       height: 0.82rem;
-      fill: var(--accent);
+      fill: var(--accent-dark);
     }
 
     .email {
-      color: rgba(247, 250, 252, 0.55);
+      color: #587287;
       font: 500 0.72rem/1.2 "Manrope", sans-serif;
       text-decoration: none;
       transition: color 180ms ease;
     }
 
-    .email:hover { color: var(--white); }
+    .email:hover { color: var(--accent-dark); }
 
     .socials { display: flex; flex-wrap: wrap; gap: 0.45rem; }
 
@@ -231,18 +234,18 @@
       gap: 0.46rem;
       min-height: 2.05rem;
       padding: 0.48rem 0.68rem;
-      border: 1px solid rgba(255, 255, 255, 0.13);
+      border: 1px solid rgba(47, 111, 169, 0.18);
       border-radius: 0.5rem;
-      color: rgba(247, 250, 252, 0.62);
+      color: #4f6b80;
       font: 500 0.73rem/1 "Manrope", sans-serif;
       text-decoration: none;
       transition: 180ms ease;
     }
 
     .socials a:hover {
-      color: var(--navy);
-      background: var(--accent);
-      border-color: var(--accent);
+      color: #ffffff;
+      background: var(--accent-dark);
+      border-color: var(--accent-dark);
       transform: translateY(-2px);
     }
 
@@ -340,6 +343,11 @@
       padding-top: 2.8rem;
       border-top: 1px solid var(--line);
     }
+
+    .publication:last-child { padding-bottom: 0; }
+
+    #publications { padding-bottom: 2.1rem; }
+    #experience { padding-top: 2.1rem; }
 
     .pub-media {
       position: relative;
@@ -494,16 +502,17 @@
       html { scroll-padding-top: 1rem; }
       .site-shell { padding: 1rem 1rem 0; }
       .sidebar-inner {
-        grid-template-columns: 7.25rem minmax(0, 1fr) auto;
+        grid-template-columns: 7.25rem minmax(0, 1fr);
         grid-template-areas:
-          "photo identity logo"
-          "photo navigation navigation"
-          "photo contact contact";
+          "photo identity"
+          "photo navigation"
+          "photo contact";
         column-gap: 1.5rem;
         padding: 1.5rem;
       }
-      .sidebar-top { grid-column: auto; }
-      .identity { align-self: center; margin: 0; }
+      .sidebar-top { top: 1.3rem; right: 1.4rem; }
+      .institution-mark { width: 7.3rem; }
+      .identity { align-self: center; margin: 0; padding-right: 7.5rem; }
       .name { font-size: 2rem; }
       .profile-row { align-self: center; justify-self: start; margin: 0; }
       .portrait { width: 7.25rem; }
@@ -530,9 +539,9 @@
         column-gap: 1.1rem;
         padding: 1.25rem;
       }
-      .sidebar-top { justify-self: start; margin-bottom: 1.5rem; }
+      .sidebar-top { position: static; grid-area: logo; justify-self: end; margin-bottom: 1.5rem; }
       .institution-mark { width: 6.7rem; }
-      .identity { margin: 0; }
+      .identity { margin: 0; padding-right: 0; }
       .eyebrow { margin-bottom: 0.9rem; }
       .name { max-width: none; font-size: 1.9rem; }
       .role { max-width: 14rem; font-size: 0.84rem; }
@@ -548,6 +557,8 @@
       .section-label span { display: inline-block; margin: 0 0.7rem 0 0; }
       .intro { padding-bottom: 3.25rem; }
       .content-section { padding: 3.25rem 0; }
+      #publications { padding-bottom: 1.8rem; }
+      #experience { padding-top: 1.8rem; }
       .publication { grid-template-columns: 1fr; gap: 1.4rem; }
       .pub-media { width: 100%; max-width: 32rem; }
       .timeline-item {

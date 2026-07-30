@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="theme-color" content="#132126" />
+  <meta name="theme-color" content="#0c1f36" />
   <meta name="description" content="Juhyeong Kim — Incoming M.S./Ph.D. student at KAIST AI researching generative models and bandit algorithms." />
   <title>Juhyeong Kim — Researcher</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&amp;family=Manrope:wght@400;500;600;700&amp;display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&amp;family=Manrope:wght@400;500;600;700&amp;family=Space+Grotesk:wght@500;600&amp;display=swap" rel="stylesheet" />
   <style>
     :root {
-      --navy: #102732;
-      --navy-soft: #193641;
-      --paper: #f1f6f8;
-      --paper-deep: #e5edf1;
-      --ink: #152934;
-      --text: #465963;
-      --muted: #74858d;
-      --line: rgba(21, 41, 52, 0.14);
-      --white: #f7fafb;
-      --accent: #acd0dc;
-      --accent-dark: #2e6e86;
+      --navy: #0c1f36;
+      --navy-soft: #132f50;
+      --paper: #f2f7fb;
+      --paper-deep: #e5eef6;
+      --ink: #142a42;
+      --text: #465b6d;
+      --muted: #74889a;
+      --line: rgba(20, 42, 66, 0.14);
+      --white: #f7fafc;
+      --accent: #93c5f4;
+      --accent-dark: #2f6fa9;
       --sidebar-width: clamp(18.5rem, 22vw, 21.5rem);
     }
 
@@ -58,9 +58,9 @@
       position: relative;
       z-index: 2;
       min-width: 0;
-      color: rgba(249, 248, 244, 0.72);
+      color: rgba(247, 250, 252, 0.72);
       background:
-        radial-gradient(circle at 105% 4%, rgba(185, 215, 207, 0.17), transparent 33%),
+        radial-gradient(circle at 105% 4%, rgba(92, 158, 222, 0.22), transparent 34%),
         var(--navy);
     }
 
@@ -79,6 +79,7 @@
       top: 0;
       display: flex;
       flex-direction: column;
+      justify-content: center;
       min-height: 100vh;
       padding: 2.5rem clamp(2rem, 3vw, 3.25rem) 2rem;
     }
@@ -86,29 +87,20 @@
     .sidebar-top {
       display: flex;
       align-items: center;
-      justify-content: space-between;
-      color: rgba(249, 248, 244, 0.45);
-      font: 600 0.68rem/1 "Manrope", sans-serif;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
+      min-height: 1.8rem;
     }
 
-    .status {
+    .institution-mark {
       display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
+      width: 7.8rem;
+      opacity: 0.76;
+      transition: opacity 180ms ease;
     }
 
-    .status::before {
-      width: 0.42rem;
-      height: 0.42rem;
-      border-radius: 50%;
-      background: var(--accent);
-      box-shadow: 0 0 0 0.25rem rgba(185, 215, 207, 0.1);
-      content: "";
-    }
+    .institution-mark:hover { opacity: 1; }
+    .institution-mark img { display: block; width: 100%; height: auto; filter: brightness(0) invert(1); }
 
-    .identity { margin-top: clamp(3rem, 8vh, 5.5rem); }
+    .identity { margin-top: clamp(2.7rem, 6vh, 4.25rem); }
 
     .eyebrow {
       margin: 0 0 1.2rem;
@@ -122,27 +114,24 @@
       max-width: 8ch;
       margin: 0;
       color: var(--white);
-      font: 500 clamp(2.4rem, 3.2vw, 3.4rem)/1 "Manrope", sans-serif;
-      letter-spacing: -0.065em;
+      font: 600 clamp(2.35rem, 2.75vw, 3.05rem)/1.02 "Space Grotesk", sans-serif;
+      letter-spacing: -0.045em;
     }
 
     .role {
       max-width: 17rem;
       margin: 1.3rem 0 0;
-      color: rgba(249, 248, 244, 0.62);
-      font-size: 0.9rem;
-      line-height: 1.55;
+      color: rgba(247, 250, 252, 0.62);
+      font-size: 0.82rem;
+      line-height: 1.6;
     }
 
     .profile-row {
-      display: flex;
-      align-items: center;
-      gap: 0.85rem;
-      margin-top: 2.2rem;
+      margin-top: 1.9rem;
     }
 
     .portrait {
-      width: 6.7rem;
+      width: 6.4rem;
       aspect-ratio: 4 / 5;
       object-fit: cover;
       object-position: center 27%;
@@ -151,27 +140,11 @@
       filter: saturate(0.82) contrast(1.02);
     }
 
-    .institution-badge {
-      display: grid;
-      width: 7.25rem;
-      min-height: 3.45rem;
-      place-items: center;
-      padding: 0.72rem 0.65rem;
-      border: 1px solid rgba(255, 255, 255, 0.16);
-      border-radius: 0.3rem;
-      background: rgba(247, 250, 251, 0.96);
-      box-shadow: 0 0.65rem 1.8rem rgba(0, 0, 0, 0.1);
-      transition: transform 180ms ease, background 180ms ease;
-    }
-
-    .institution-badge:hover { background: #fff; transform: translateY(-2px); }
-    .institution-badge img { display: block; width: 100%; height: auto; }
-
     .side-nav {
       display: grid;
       gap: 0;
-      margin-top: auto;
-      padding-top: 2rem;
+      margin-top: 2.5rem;
+      padding-top: 0;
     }
 
     .side-nav a {
@@ -180,7 +153,7 @@
       align-items: center;
       padding: 0.62rem 0;
       border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-      color: rgba(249, 248, 244, 0.55);
+      color: rgba(247, 250, 252, 0.55);
       font: 500 0.78rem/1.2 "Manrope", sans-serif;
       letter-spacing: 0.02em;
       text-decoration: none;
@@ -190,7 +163,7 @@
     .side-nav a:first-child { border-top: 1px solid rgba(255, 255, 255, 0.1); }
     .side-nav a:hover,
     .side-nav a.is-active { color: var(--white); }
-    .side-nav .nav-number { color: rgba(185, 215, 207, 0.68); font-size: 0.62rem; }
+    .side-nav .nav-number { color: rgba(147, 197, 244, 0.76); font-size: 0.62rem; }
     .side-nav .nav-arrow { opacity: 0; transform: translateX(-0.35rem); transition: 180ms ease; }
     .side-nav a:hover .nav-arrow,
     .side-nav a.is-active .nav-arrow { opacity: 1; transform: translateX(0); }
@@ -204,7 +177,7 @@
     }
 
     .email {
-      color: rgba(249, 248, 244, 0.55);
+      color: rgba(247, 250, 252, 0.55);
       font: 500 0.72rem/1.2 "Manrope", sans-serif;
       text-decoration: none;
       transition: color 180ms ease;
@@ -221,7 +194,7 @@
       place-items: center;
       border: 1px solid rgba(255, 255, 255, 0.13);
       border-radius: 50%;
-      color: rgba(249, 248, 244, 0.62);
+      color: rgba(247, 250, 252, 0.62);
       transition: 180ms ease;
     }
 
@@ -237,15 +210,15 @@
     main { min-width: 0; }
 
     .content {
-      width: min(100%, 64rem);
-      margin: 0;
-      padding: clamp(3.5rem, 6vw, 6.5rem) clamp(2.5rem, 5vw, 5rem) 4rem;
+      width: min(100%, 66rem);
+      margin: 0 auto;
+      padding: clamp(3.5rem, 6vw, 6.5rem) clamp(2.25rem, 4.5vw, 4.5rem) 4rem;
     }
 
     .intro {
       display: grid;
-      grid-template-columns: 5.25rem minmax(0, 1fr);
-      gap: clamp(1.5rem, 3vw, 2.75rem);
+      grid-template-columns: 4.25rem minmax(0, 1fr);
+      gap: clamp(1.35rem, 2.5vw, 2.25rem);
       align-items: start;
       padding-bottom: clamp(3.5rem, 6vw, 5.5rem);
     }
@@ -279,7 +252,7 @@
     .text-link {
       color: var(--accent-dark);
       font-weight: 500;
-      text-decoration-color: rgba(50, 107, 100, 0.3);
+      text-decoration-color: rgba(47, 111, 169, 0.32);
       text-underline-offset: 0.2em;
     }
 
@@ -305,8 +278,8 @@
 
     .content-section {
       display: grid;
-      grid-template-columns: 5.25rem minmax(0, 1fr);
-      gap: clamp(1.5rem, 3vw, 2.75rem);
+      grid-template-columns: 4.25rem minmax(0, 1fr);
+      gap: clamp(1.35rem, 2.5vw, 2.25rem);
       padding: clamp(3.8rem, 6vw, 5.5rem) 0;
       border-top: 1px solid var(--line);
     }
@@ -497,12 +470,13 @@
         position: relative;
         display: grid;
         grid-template-columns: minmax(0, 1fr) auto;
+        justify-content: normal;
         min-height: auto;
         padding: 1.75rem clamp(1.4rem, 6vw, 3.5rem) 2rem;
       }
       .sidebar-top { grid-column: 1 / -1; }
       .identity { align-self: end; margin-top: 4rem; }
-      .name { font-size: clamp(2.6rem, 9vw, 3.6rem); }
+      .name { font-size: clamp(2.45rem, 8vw, 3.2rem); }
       .profile-row { align-self: end; justify-self: end; margin: 3.5rem 0 0 1.5rem; }
       .portrait { width: clamp(6rem, 19vw, 8rem); }
       .side-nav {
@@ -530,11 +504,9 @@
 
     @media (max-width: 620px) {
       .sidebar-inner { padding-right: 1.25rem; padding-left: 1.25rem; }
-      .status { font-size: 0; }
-      .status::after { font-size: 0.68rem; content: "Seoul, KR"; }
       .identity { margin-top: 3.2rem; }
       .eyebrow { margin-bottom: 0.9rem; }
-      .name { max-width: 7ch; font-size: clamp(2.45rem, 12vw, 3.35rem); }
+      .name { max-width: 7ch; font-size: clamp(2.35rem, 11vw, 3rem); }
       .role { max-width: 14rem; font-size: 0.78rem; }
       .profile-row { margin-left: 0.75rem; }
       .portrait { width: clamp(5.5rem, 24vw, 7rem); }
@@ -572,21 +544,19 @@
     <aside class="sidebar" aria-label="Profile and navigation">
       <div class="sidebar-inner">
         <div class="sidebar-top">
-          <span>JK / Portfolio</span>
-          <span class="status">Based in Seoul</span>
+          <a class="institution-mark" href="https://gsai.kaist.ac.kr/" target="_blank" rel="noopener noreferrer" aria-label="KAIST AI">
+            <img src="kaist-ai-logo.svg" alt="KAIST AI" />
+          </a>
         </div>
 
         <div class="identity">
           <p class="eyebrow">Researcher · KAIST AI</p>
           <h1 class="name">Juhyeong Kim</h1>
-          <p class="role">Generative models, bandit algorithms, and their mathematical foundations.</p>
+          <p class="role">Generative Models, Diffusion Models, Robotics</p>
         </div>
 
         <div class="profile-row">
           <img class="portrait" src="profile.jpg" alt="Portrait of Juhyeong Kim" />
-          <a class="institution-badge" href="https://gsai.kaist.ac.kr/" target="_blank" rel="noopener noreferrer" aria-label="KAIST AI">
-            <img src="kaist-ai-logo.svg" alt="KAIST AI" />
-          </a>
         </div>
 
         <nav class="side-nav" aria-label="Primary navigation">

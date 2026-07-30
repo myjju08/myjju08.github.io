@@ -50,47 +50,59 @@
     }
 
     .site-shell {
-      display: grid;
-      grid-template-columns: var(--sidebar-width) minmax(0, 1fr);
+      display: block;
       width: min(100%, var(--site-width));
       min-height: 100vh;
       margin: 0 auto;
-      box-shadow: 0 0 0 1px rgba(20, 42, 66, 0.04), 0 1.5rem 5rem rgba(24, 54, 82, 0.06);
+      padding: 2rem clamp(1.25rem, 3vw, 2.5rem) 0;
     }
 
     .sidebar {
       position: relative;
       z-index: 2;
+      overflow: hidden;
       min-width: 0;
       color: rgba(247, 250, 252, 0.72);
       background:
-        radial-gradient(circle at 105% 4%, rgba(92, 158, 222, 0.22), transparent 34%),
+        linear-gradient(128deg, rgba(57, 111, 168, 0.16), transparent 48%),
         var(--navy);
+      border: 1px solid rgba(147, 197, 244, 0.13);
+      border-radius: 1.25rem;
+      box-shadow: 0 1.5rem 4rem rgba(17, 44, 72, 0.14);
     }
 
     .sidebar::after {
       position: absolute;
-      right: 0;
-      bottom: 0;
-      width: 1px;
-      height: 100%;
-      background: rgba(255, 255, 255, 0.1);
+      right: -5rem;
+      top: -7rem;
+      width: 18rem;
+      height: 18rem;
+      border-radius: 50%;
+      background: rgba(91, 157, 221, 0.2);
+      filter: blur(3.5rem);
       content: "";
     }
 
     .sidebar-inner {
-      position: sticky;
-      top: 0;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      min-height: 100vh;
-      padding: 2.5rem clamp(2rem, 3vw, 3.25rem) 2rem;
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: 9rem minmax(0, 1fr) auto;
+      grid-template-areas:
+        "photo identity logo"
+        "photo navigation navigation"
+        "photo contact contact";
+      column-gap: clamp(1.75rem, 4vw, 3.5rem);
+      row-gap: 0;
+      min-height: auto;
+      padding: clamp(1.75rem, 4vw, 2.75rem);
     }
 
     .sidebar-top {
+      grid-area: logo;
       display: flex;
       align-items: center;
+      justify-self: end;
       min-height: 1.8rem;
     }
 
@@ -104,7 +116,7 @@
     .institution-mark:hover { opacity: 1; }
     .institution-mark img { display: block; width: 100%; height: auto; filter: brightness(0) invert(1); }
 
-    .identity { margin-top: clamp(2.7rem, 6vh, 4.25rem); }
+    .identity { grid-area: identity; align-self: center; margin: 0; }
 
     .eyebrow {
       margin: 0 0 1.2rem;
@@ -118,7 +130,7 @@
       max-width: none;
       margin: 0;
       color: var(--white);
-      font: 600 1.95rem/1.08 "Space Grotesk", sans-serif;
+      font: 600 2rem/1.08 "Space Grotesk", sans-serif;
       letter-spacing: -0.035em;
     }
 
@@ -131,11 +143,13 @@
     }
 
     .profile-row {
-      margin-top: 1.9rem;
+      grid-area: photo;
+      align-self: center;
+      margin: 0;
     }
 
     .portrait {
-      width: 6.4rem;
+      width: 9rem;
       aspect-ratio: 4 / 5;
       object-fit: cover;
       object-position: center 27%;
@@ -145,39 +159,44 @@
     }
 
     .side-nav {
-      display: grid;
-      gap: 0;
-      margin-top: 2.5rem;
+      grid-area: navigation;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem;
+      margin-top: 1.4rem;
       padding-top: 0;
     }
 
     .side-nav a {
-      display: grid;
-      grid-template-columns: 1.7rem 1fr auto;
+      display: inline-flex;
       align-items: center;
-      padding: 0.62rem 0;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      gap: 0.45rem;
+      padding: 0.55rem 0.72rem;
+      border: 1px solid rgba(255, 255, 255, 0.11);
+      border-radius: 999px;
       color: rgba(247, 250, 252, 0.55);
-      font: 500 0.82rem/1.2 "Manrope", sans-serif;
+      font: 500 0.76rem/1.2 "Manrope", sans-serif;
       letter-spacing: 0.02em;
       text-decoration: none;
-      transition: color 180ms ease;
+      transition: color 180ms ease, background 180ms ease, border-color 180ms ease;
     }
 
-    .side-nav a:first-child { border-top: 1px solid rgba(255, 255, 255, 0.1); }
     .side-nav a:hover,
-    .side-nav a.is-active { color: var(--white); }
+    .side-nav a.is-active {
+      color: var(--white);
+      background: rgba(147, 197, 244, 0.12);
+      border-color: rgba(147, 197, 244, 0.26);
+    }
     .side-nav .nav-number { color: rgba(147, 197, 244, 0.76); font-size: 0.62rem; }
-    .side-nav .nav-arrow { opacity: 0; transform: translateX(-0.35rem); transition: 180ms ease; }
-    .side-nav a:hover .nav-arrow,
-    .side-nav a.is-active .nav-arrow { opacity: 1; transform: translateX(0); }
+    .side-nav .nav-arrow { display: none; }
 
     .sidebar-footer {
+      grid-area: contact;
       display: flex;
       align-items: center;
-      justify-content: space-between;
-      gap: 1rem;
-      margin-top: 1.5rem;
+      justify-content: flex-start;
+      gap: 1.1rem;
+      margin-top: 1rem;
     }
 
     .email {
@@ -211,12 +230,12 @@
 
     .socials svg { width: 0.85rem; height: 0.85rem; fill: currentColor; }
 
-    main { min-width: 0; background: var(--paper); }
+    main { min-width: 0; }
 
     .content {
-      width: min(100%, 61rem);
+      width: min(100%, 68rem);
       margin: 0 auto;
-      padding: clamp(3.5rem, 6vw, 6rem) clamp(2.25rem, 4vw, 3.25rem) 4rem;
+      padding: clamp(3.5rem, 6vw, 5.5rem) 0 4rem;
     }
 
     .intro {
@@ -290,18 +309,11 @@
 
     .section-body { min-width: 0; }
 
-    .section-heading {
-      margin: -0.2em 0 clamp(2.2rem, 5vw, 4rem);
-      color: var(--ink);
-      font: 500 clamp(1.6rem, 2vw, 2rem)/1.25 "Manrope", sans-serif;
-      letter-spacing: -0.04em;
-    }
-
     .publication {
       display: grid;
-      grid-template-columns: minmax(10rem, 0.82fr) minmax(0, 1.4fr);
+      grid-template-columns: minmax(15rem, 0.92fr) minmax(0, 1.45fr);
       gap: clamp(1.5rem, 3vw, 2.8rem);
-      align-items: start;
+      align-items: center;
       padding: 0 0 2.8rem;
     }
 
@@ -312,18 +324,20 @@
 
     .pub-media {
       position: relative;
-      display: block;
+      display: grid;
       overflow: hidden;
-      min-height: 8rem;
+      aspect-ratio: 16 / 9;
+      place-items: center;
       border: 1px solid var(--line);
-      border-radius: 0.2rem;
+      border-radius: 0.55rem;
       background: var(--paper-deep);
     }
 
     .pub-media img {
       display: block;
       width: 100%;
-      height: auto;
+      height: 100%;
+      object-fit: contain;
       transition: transform 450ms cubic-bezier(.2, .7, .2, 1);
     }
 
@@ -371,9 +385,9 @@
     .pub-links a:hover { text-decoration: underline; text-underline-offset: 0.2em; }
 
     .legend {
-      margin: -2rem 0 2.5rem;
+      margin: 0 0 2.75rem;
       color: var(--muted);
-      font-size: 0.7rem;
+      font-size: 0.78rem;
     }
 
     .timeline { position: relative; }
@@ -404,6 +418,7 @@
     .logo-frame img { display: block; width: 100%; height: 100%; object-fit: contain; }
     .logo-frame .wide-logo { width: 100%; }
     .logo-frame .basketball { padding: 0.2rem; }
+    .logo-frame .dtu-logo { width: 72%; height: 72%; }
 
     .timeline-title {
       margin: 0;
@@ -456,75 +471,66 @@
 
     .back-to-top:hover { color: var(--accent-dark); }
 
-    @media (max-height: 740px) and (min-width: 881px) {
-      .sidebar-inner { position: relative; }
-      .identity { margin-top: 2.5rem; }
-      .profile-row { margin-top: 1.5rem; }
-      .portrait { width: 5.7rem; }
-    }
-
     @media (max-width: 880px) {
       html { scroll-padding-top: 1rem; }
-      .site-shell { display: block; }
-      .sidebar { min-height: auto; }
+      .site-shell { padding: 1rem 1rem 0; }
       .sidebar-inner {
-        position: relative;
-        display: grid;
-        grid-template-columns: minmax(0, 1fr) auto;
-        justify-content: normal;
-        min-height: auto;
-        padding: 1.75rem clamp(1.4rem, 6vw, 3.5rem) 2rem;
+        grid-template-columns: 7.25rem minmax(0, 1fr) auto;
+        grid-template-areas:
+          "photo identity logo"
+          "photo navigation navigation"
+          "photo contact contact";
+        column-gap: 1.5rem;
+        padding: 1.5rem;
       }
-      .sidebar-top { grid-column: 1 / -1; }
-      .identity { align-self: end; margin-top: 4rem; }
+      .sidebar-top { grid-column: auto; }
+      .identity { align-self: center; margin: 0; }
       .name { font-size: 2rem; }
-      .profile-row { align-self: end; justify-self: end; margin: 3.5rem 0 0 1.5rem; }
-      .portrait { width: clamp(6rem, 19vw, 8rem); }
+      .profile-row { align-self: center; justify-self: start; margin: 0; }
+      .portrait { width: 7.25rem; }
       .side-nav {
-        grid-column: 1 / -1;
-        grid-template-columns: repeat(4, 1fr);
-        margin-top: 2.5rem;
-        padding-top: 0;
-        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        grid-column: auto;
+        display: flex;
+        margin-top: 1.25rem;
       }
-      .side-nav a,
-      .side-nav a:first-child {
-        display: block;
-        padding: 0.8rem 0;
-        border-top: 0;
-        border-right: 1px solid rgba(255, 255, 255, 0.1);
-        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        text-align: center;
-      }
-      .side-nav a:last-child { border-right: 0; }
-      .side-nav .nav-number,
-      .side-nav .nav-arrow { display: none; }
-      .sidebar-footer { grid-column: 1 / -1; }
-      .content { padding-top: clamp(4rem, 10vw, 6rem); }
+      .side-nav .nav-number { display: inline; }
+      .sidebar-footer { grid-column: auto; }
+      .content { padding-top: clamp(3.5rem, 8vw, 5rem); }
     }
 
     @media (max-width: 620px) {
-      .sidebar-inner { padding-right: 1.25rem; padding-left: 1.25rem; }
-      .identity { margin-top: 3.2rem; }
+      .site-shell { padding: 0.65rem 0.65rem 0; }
+      .sidebar { border-radius: 1rem; }
+      .sidebar-inner {
+        grid-template-columns: 5.75rem minmax(0, 1fr);
+        grid-template-areas:
+          "logo logo"
+          "photo identity"
+          "navigation navigation"
+          "contact contact";
+        column-gap: 1.1rem;
+        padding: 1.25rem;
+      }
+      .sidebar-top { justify-self: start; margin-bottom: 1.5rem; }
+      .institution-mark { width: 6.7rem; }
+      .identity { margin: 0; }
       .eyebrow { margin-bottom: 0.9rem; }
       .name { max-width: none; font-size: 1.9rem; }
       .role { max-width: 14rem; font-size: 0.84rem; }
-      .profile-row { margin-left: 0.75rem; }
-      .portrait { width: clamp(5.5rem, 24vw, 7rem); }
-      .side-nav { grid-template-columns: repeat(2, 1fr); }
-      .side-nav a:nth-child(2) { border-right: 0; }
-      .side-nav a:nth-child(-n+2) { border-bottom: 0; }
+      .profile-row { margin: 0; }
+      .portrait { width: 5.75rem; }
+      .side-nav { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.45rem; }
+      .side-nav a { justify-content: center; }
       .sidebar-footer { align-items: flex-start; flex-direction: column; }
-      .content { padding: 3.8rem 1.25rem 2.5rem; }
+      .content { padding: 3.5rem 0.6rem 2.5rem; }
       .intro,
       .content-section { display: block; }
       .section-label { margin-bottom: 2rem; }
       .section-label span { display: inline-block; margin: 0 0.7rem 0 0; }
       .intro { padding-bottom: 4.5rem; }
       .content-section { padding: 4.5rem 0; }
-      .section-heading { margin-bottom: 2.5rem; }
       .publication { grid-template-columns: 1fr; gap: 1.4rem; }
-      .pub-media { max-width: 28rem; }
+      .pub-media { width: 100%; max-width: 32rem; }
       .timeline-item {
         grid-template-columns: 3.2rem minmax(0, 1fr);
         gap: 1rem;
@@ -603,7 +609,6 @@
         <section class="content-section" id="publications">
           <p class="section-label"><span>02</span>Research</p>
           <div class="section-body">
-            <h2 class="section-heading">Selected publications</h2>
             <p class="legend"><sup>*</sup> Equal contribution · <sup>†</sup> Corresponding author</p>
 
             <article class="publication">
@@ -641,7 +646,6 @@
         <section class="content-section" id="experience">
           <p class="section-label"><span>03</span>Career</p>
           <div class="section-body">
-            <h2 class="section-heading">Research &amp; experience</h2>
             <div class="timeline">
               <article class="timeline-item">
                 <div class="logo-frame"><img src="khu-logo.jpg" alt="Kyung Hee University" /></div>
@@ -681,7 +685,6 @@
         <section class="content-section" id="education">
           <p class="section-label"><span>04</span>Study</p>
           <div class="section-body">
-            <h2 class="section-heading">Education</h2>
             <div class="timeline">
               <article class="timeline-item">
                 <div class="logo-frame"><img src="kaist-ai-logo.svg" alt="KAIST AI" /></div>
@@ -702,7 +705,7 @@
               </article>
 
               <article class="timeline-item">
-                <div class="logo-frame"><img src="dtu-logo.svg" alt="DTU" /></div>
+                <div class="logo-frame"><img class="dtu-logo" src="dtu-logo.svg" alt="DTU" /></div>
                 <div>
                   <h3 class="timeline-title">Technical University of Denmark (DTU)</h3>
                   <p class="timeline-subtitle">Exchange Student, Computer Science · Lyngby, Denmark</p>

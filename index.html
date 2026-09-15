@@ -62,13 +62,15 @@
       z-index: 2;
       overflow: hidden;
       min-width: 0;
+      max-width: 68rem;
+      margin-inline: auto;
       color: var(--text);
       background:
         linear-gradient(128deg, rgba(255, 255, 255, 0.72), transparent 52%),
         #e7f4ff;
       border: 1px solid #cfe5f6;
       border-radius: 1.25rem;
-      box-shadow: 0 1.25rem 3.5rem rgba(36, 92, 137, 0.1);
+      box-shadow: 0 0.75rem 2rem rgba(36, 92, 137, 0.06);
     }
 
     .sidebar::after {
@@ -80,6 +82,7 @@
       border-radius: 50%;
       background: rgba(91, 157, 221, 0.16);
       filter: blur(3.5rem);
+      pointer-events: none;
       content: "";
     }
 
@@ -87,30 +90,29 @@
       position: relative;
       z-index: 1;
       display: grid;
-      grid-template-columns: 9rem minmax(0, 1fr);
+      grid-template-columns: 9rem minmax(0, 1fr) 17rem;
       grid-template-areas:
-        "photo identity"
-        "photo navigation"
-        "photo contact";
-      column-gap: clamp(1.75rem, 4vw, 3.5rem);
-      row-gap: 0;
+        "photo identity logo"
+        "photo identity contact"
+        "navigation navigation navigation";
+      column-gap: 2rem;
+      row-gap: 0.9rem;
       min-height: auto;
-      padding: clamp(1.75rem, 4vw, 2.75rem);
+      padding: 1.75rem 2rem 1rem;
     }
 
     .sidebar-top {
-      position: absolute;
-      top: 1.55rem;
-      right: 1.8rem;
+      grid-area: logo;
       display: flex;
       align-items: center;
+      align-self: start;
+      justify-self: end;
       min-height: 1.8rem;
     }
 
     .institution-mark {
       display: inline-flex;
-      width: 7.8rem;
-      width: 8.6rem;
+      width: 8rem;
       opacity: 0.88;
       transition: opacity 180ms ease;
     }
@@ -118,13 +120,13 @@
     .institution-mark:hover { opacity: 1; }
     .institution-mark img { display: block; width: 100%; height: auto; }
 
-    .identity { grid-area: identity; align-self: center; margin: 0; padding-right: 10rem; }
+    .identity { grid-area: identity; min-width: 0; align-self: center; margin: 0; }
 
     .eyebrow {
-      margin: 0 0 1.2rem;
+      margin: 0 0 0.8rem;
       color: var(--accent-dark);
       font: 600 0.7rem/1.2 "Manrope", sans-serif;
-      letter-spacing: 0.18em;
+      letter-spacing: 0.13em;
       text-transform: uppercase;
     }
 
@@ -137,10 +139,10 @@
     }
 
     .role {
-      max-width: 17rem;
-      margin: 1.3rem 0 0;
+      max-width: 30ch;
+      margin: 0.85rem 0 0;
       color: #587287;
-      font-size: 0.88rem;
+      font-size: 0.95rem;
       line-height: 1.6;
     }
 
@@ -151,6 +153,7 @@
     }
 
     .portrait {
+      display: block;
       width: 9rem;
       aspect-ratio: 4 / 5;
       object-fit: cover;
@@ -165,20 +168,22 @@
       grid-area: navigation;
       display: flex;
       flex-wrap: wrap;
-      gap: 0.45rem;
-      margin-top: 1.4rem;
-      padding-top: 0;
+      gap: 0.5rem;
+      margin-top: 0.25rem;
+      padding-top: 0.85rem;
+      border-top: 1px solid rgba(47, 111, 169, 0.14);
     }
 
     .side-nav a {
       display: inline-flex;
       align-items: center;
       gap: 0.45rem;
-      padding: 0.55rem 0.72rem;
-      border: 1px solid rgba(47, 111, 169, 0.18);
-      border-radius: 999px;
+      min-height: 2.75rem;
+      padding: 0.6rem 0.9rem;
+      border: 1px solid transparent;
+      border-radius: 0.6rem;
       color: #587287;
-      font: 500 0.76rem/1.2 "Manrope", sans-serif;
+      font: 500 0.82rem/1.2 "Manrope", sans-serif;
       letter-spacing: 0.02em;
       text-decoration: none;
       transition: color 180ms ease, background 180ms ease, border-color 180ms ease;
@@ -195,49 +200,58 @@
 
     .sidebar-footer {
       grid-area: contact;
-      display: flex;
-      align-items: center;
-      justify-content: flex-start;
-      flex-wrap: wrap;
-      gap: 0.65rem 1rem;
-      margin-top: 1rem;
+      display: grid;
+      align-self: end;
+      gap: 0.85rem;
+      padding-left: 1.5rem;
+      border-left: 1px solid rgba(47, 111, 169, 0.16);
     }
+
+    .contact-details { display: grid; gap: 0.6rem; }
 
     .location-chip {
       display: inline-flex;
       align-items: center;
-      gap: 0.42rem;
+      gap: 0.6rem;
       color: #4f6b80;
-      font: 500 0.75rem/1.2 "Manrope", sans-serif;
+      font: 500 0.84rem/1.4 "Manrope", sans-serif;
     }
 
     .location-chip svg {
-      width: 0.82rem;
-      height: 0.82rem;
+      width: 1rem;
+      height: 1rem;
+      flex-shrink: 0;
       fill: var(--accent-dark);
     }
 
     .email {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
       color: #587287;
-      font: 500 0.72rem/1.2 "Manrope", sans-serif;
+      font: 500 0.84rem/1.4 "Manrope", sans-serif;
+      overflow-wrap: anywhere;
       text-decoration: none;
       transition: color 180ms ease;
     }
 
     .email:hover { color: var(--accent-dark); }
 
-    .socials { display: flex; flex-wrap: wrap; gap: 0.45rem; }
+    .email svg { width: 1rem; height: 1rem; flex-shrink: 0; color: var(--accent-dark); }
+
+    .socials { display: flex; flex-wrap: wrap; gap: 0.6rem; }
 
     .socials a {
       display: inline-flex;
       align-items: center;
-      gap: 0.46rem;
-      min-height: 2.05rem;
-      padding: 0.48rem 0.68rem;
+      gap: 0.5rem;
+      min-height: 2.75rem;
+      padding: 0.6rem 0.8rem;
       border: 1px solid rgba(47, 111, 169, 0.18);
       border-radius: 0.5rem;
       color: #4f6b80;
-      font: 500 0.73rem/1 "Manrope", sans-serif;
+      background: rgba(255, 255, 255, 0.58);
+      font: 600 0.82rem/1 "Manrope", sans-serif;
       text-decoration: none;
       transition: 180ms ease;
     }
@@ -249,7 +263,12 @@
       transform: translateY(-2px);
     }
 
-    .socials svg { width: 0.9rem; height: 0.9rem; fill: currentColor; }
+    .socials svg { width: 1rem; height: 1rem; fill: currentColor; }
+
+    .sidebar a:focus-visible {
+      outline: 2px solid var(--accent-dark);
+      outline-offset: 3px;
+    }
 
     main { min-width: 0; }
 
@@ -498,58 +517,63 @@
 
     .back-to-top:hover { color: var(--accent-dark); }
 
+    @media (max-width: 960px) {
+      .sidebar-inner {
+        grid-template-columns: 7rem minmax(0, 1fr) 14.5rem;
+        column-gap: 1.25rem;
+        padding: 1.5rem 1.5rem 0.85rem;
+      }
+      .institution-mark { width: 7.3rem; }
+      .name { font-size: 1.85rem; }
+      .portrait { width: 7rem; }
+      .sidebar-footer { padding-left: 1rem; }
+      .socials a { padding-inline: 0.6rem; }
+    }
+
     @media (max-width: 880px) {
       html { scroll-padding-top: 1rem; }
       .site-shell { padding: 1rem 1rem 0; }
-      .sidebar-inner {
-        grid-template-columns: 7.25rem minmax(0, 1fr);
-        grid-template-areas:
-          "photo identity"
-          "photo navigation"
-          "photo contact";
-        column-gap: 1.5rem;
-        padding: 1.5rem;
-      }
-      .sidebar-top { top: 1.3rem; right: 1.4rem; }
-      .institution-mark { width: 7.3rem; }
-      .identity { align-self: center; margin: 0; padding-right: 7.5rem; }
-      .name { font-size: 2rem; }
-      .profile-row { align-self: center; justify-self: start; margin: 0; }
-      .portrait { width: 7.25rem; }
-      .side-nav {
-        grid-column: auto;
-        display: flex;
-        margin-top: 1.25rem;
-      }
-      .side-nav .nav-number { display: inline; }
-      .sidebar-footer { grid-column: auto; }
       .content { padding-top: clamp(2.8rem, 6vw, 3.75rem); }
+    }
+
+    @media (max-width: 720px) {
+      .sidebar-inner {
+        grid-template-columns: 6rem minmax(0, 1fr);
+        grid-template-areas:
+          "logo logo"
+          "photo identity"
+          "contact contact"
+          "navigation navigation";
+        gap: 1.1rem;
+        padding: 1.25rem 1.25rem 0.85rem;
+      }
+      .institution-mark { width: 6.7rem; }
+      .eyebrow { margin-bottom: 0.6rem; font-size: 0.63rem; }
+      .name { font-size: 1.8rem; }
+      .role { margin-top: 0.65rem; font-size: 0.9rem; }
+      .portrait { width: 6rem; }
+      .sidebar-footer {
+        grid-template-columns: minmax(0, 1fr) auto;
+        align-items: center;
+        padding: 1rem 0 0;
+        border-left: 0;
+        border-top: 1px solid rgba(47, 111, 169, 0.14);
+      }
+      .side-nav { margin: 0; padding-top: 0.75rem; gap: 0.3rem; }
+      .side-nav a { flex: 1 1 auto; justify-content: center; padding-inline: 0.65rem; }
+    }
+
+    @media (max-width: 560px) {
+      .sidebar-footer { grid-template-columns: minmax(0, 1fr); gap: 0.8rem; }
+      .socials { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .socials a { justify-content: center; }
+      .side-nav { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .side-nav a { justify-content: center; }
     }
 
     @media (max-width: 620px) {
       .site-shell { padding: 0.65rem 0.65rem 0; }
       .sidebar { border-radius: 1rem; }
-      .sidebar-inner {
-        grid-template-columns: 5.75rem minmax(0, 1fr);
-        grid-template-areas:
-          "logo logo"
-          "photo identity"
-          "navigation navigation"
-          "contact contact";
-        column-gap: 1.1rem;
-        padding: 1.25rem;
-      }
-      .sidebar-top { position: static; grid-area: logo; justify-self: end; margin-bottom: 1.5rem; }
-      .institution-mark { width: 6.7rem; }
-      .identity { margin: 0; padding-right: 0; }
-      .eyebrow { margin-bottom: 0.9rem; }
-      .name { max-width: none; font-size: 1.9rem; }
-      .role { max-width: 14rem; font-size: 0.84rem; }
-      .profile-row { margin: 0; }
-      .portrait { width: 5.75rem; }
-      .side-nav { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.45rem; }
-      .side-nav a { justify-content: center; }
-      .sidebar-footer { align-items: flex-start; flex-direction: column; }
       .content { padding: 2.8rem 0.6rem 2.5rem; }
       .intro,
       .content-section { display: block; }
@@ -596,19 +620,17 @@
           <img class="portrait" src="profile.jpg" alt="Portrait of Juhyeong Kim" />
         </div>
 
-        <nav class="side-nav" aria-label="Primary navigation">
-          <a class="is-active" href="#about"><span class="nav-number">01</span><span>About</span><span class="nav-arrow">↗</span></a>
-          <a href="#publications"><span class="nav-number">02</span><span>Publications</span><span class="nav-arrow">↗</span></a>
-          <a href="#experience"><span class="nav-number">03</span><span>Experience</span><span class="nav-arrow">↗</span></a>
-          <a href="#education"><span class="nav-number">04</span><span>Education</span><span class="nav-arrow">↗</span></a>
-        </nav>
-
         <div class="sidebar-footer">
-          <span class="location-chip">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z" /></svg>
-            Based in Seoul
-          </span>
-          <a class="email" href="mailto:myjju0808@kaist.ac.kr">myjju0808@kaist.ac.kr</a>
+          <div class="contact-details">
+            <span class="location-chip">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z" /></svg>
+              Based in Seoul
+            </span>
+            <a class="email" href="mailto:myjju0808@kaist.ac.kr">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2" /><path d="m3 6 9 7 9-7" /></svg>
+              <span>myjju0808@kaist.ac.kr</span>
+            </a>
+          </div>
           <div class="socials" aria-label="Social links">
             <a href="https://github.com/myjju08" target="_blank" rel="noopener noreferrer" aria-label="GitHub" title="GitHub">
               <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .5C5.73.5.5 5.73.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.56 0-.28-.01-1.02-.02-2-3.2.7-3.88-1.54-3.88-1.54-.52-1.33-1.28-1.69-1.28-1.69-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11 11 0 0 1 5.79 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.84 1.19 3.1 0 4.42-2.69 5.39-5.25 5.68.41.36.78 1.07.78 2.16 0 1.56-.01 2.82-.01 3.2 0 .31.21.68.8.56A11.51 11.51 0 0 0 23.5 12C23.5 5.73 18.27.5 12 .5z" /></svg>
@@ -620,6 +642,12 @@
             </a>
           </div>
         </div>
+        <nav class="side-nav" aria-label="Primary navigation">
+          <a class="is-active" href="#about"><span class="nav-number">01</span><span>About</span><span class="nav-arrow">↗</span></a>
+          <a href="#publications"><span class="nav-number">02</span><span>Publications</span><span class="nav-arrow">↗</span></a>
+          <a href="#experience"><span class="nav-number">03</span><span>Experience</span><span class="nav-arrow">↗</span></a>
+          <a href="#education"><span class="nav-number">04</span><span>Education</span><span class="nav-arrow">↗</span></a>
+        </nav>
       </div>
     </aside>
 

@@ -377,6 +377,7 @@
       border: 1px solid #d9e0e5;
       border-radius: 0.55rem;
       background: #ffffff;
+      text-decoration: none;
     }
 
     .pub-media img {
@@ -385,6 +386,23 @@
       height: 100%;
       object-fit: contain;
       transition: transform 450ms cubic-bezier(.2, .7, .2, 1);
+    }
+
+    .pub-venue-banner {
+      position: absolute;
+      z-index: 1;
+      top: 1rem;
+      left: 0;
+      max-width: calc(100% - 1rem);
+      padding: 0.58rem 1.2rem 0.62rem;
+      overflow: hidden;
+      color: #ffffff;
+      background: #263f9f;
+      box-shadow: 0 0.35rem 0.85rem rgba(12, 31, 54, 0.2);
+      font: 600 clamp(0.75rem, 1.35vw, 0.96rem)/1.15 "Manrope", sans-serif;
+      letter-spacing: -0.015em;
+      text-overflow: ellipsis;
+      white-space: nowrap;
     }
 
     a.pub-media:hover img { transform: scale(1.025); }
@@ -680,6 +698,7 @@
 
             <article class="publication">
               <div class="pub-media">
+                <span class="pub-venue-banner">NeurIPS 2026</span>
                 <img src="dualdrift.png" alt="Comparison of reverse drift, forward drift, and DualDrift" />
               </div>
               <div>
@@ -693,6 +712,7 @@
 
             <article class="publication">
               <a class="pub-media" href="https://arxiv.org/abs/2603.17476" target="_blank" rel="noopener noreferrer">
+                <span class="pub-venue-banner">NeurIPS AI4GOOD 2026 &middot; Oral</span>
                 <img src="unisafe-overview.png" alt="UniSAFE safety risk comparison across tasks and models" />
               </a>
               <div>

@@ -507,9 +507,11 @@
       line-height: 1.55;
     }
 
-    .timeline-project { color: var(--ink); font-weight: 500; }
+    .timeline-project { color: var(--ink); font-weight: 600; }
     .timeline-project strong,
     .timeline-meta strong { font-weight: 600; }
+    .timeline-topics-label { margin-top: 0.65rem; }
+    .timeline-topics-label + .details { margin-top: 0.25rem; }
 
     .timeline-date {
       margin: 0.1rem 0 0;
@@ -762,8 +764,10 @@
               <article class="timeline-item">
                 <div class="logo-frame"><img class="wide-logo" src="osi-lab-logo.png" alt="OSI Lab" /></div>
                 <div>
-                  <h3 class="timeline-title">Research Intern (KAIRI) — OSI Lab, KAIST AI</h3>
-                  <p class="timeline-subtitle">Advisor: Prof. Se-Young Yun · Seoul, South Korea</p>
+                  <h3 class="timeline-title">Research Intern (KAIRI)</h3>
+                  <p class="timeline-subtitle">Optimization and Statistical Inference (OSI) Lab, KAIST AI · Seoul, South Korea</p>
+                  <p class="timeline-meta"><strong>Advisor:</strong> Prof. Se-Young Yun</p>
+                  <p class="timeline-meta timeline-topics-label"><strong>Research topics:</strong></p>
                   <ul class="details">
                     <li>Bandit algorithms</li>
                     <li>Diffusion models: improved TFG for test-time alignment</li>
